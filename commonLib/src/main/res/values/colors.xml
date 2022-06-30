@@ -13,4 +13,6 @@
 
     <color name="common_used_protocol">#ff6766</color>
 
+    <color name="common_line">#E9E9E9</color>
+
 </resources>
