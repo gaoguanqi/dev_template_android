@@ -13,3 +13,4 @@ dependencyResolutionManagement {
 rootProject.name = "dev_template_android"
 include ':app'
 include ':baseLib'
+include ':commonLib'
