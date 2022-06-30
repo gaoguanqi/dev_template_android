@@ -66,6 +66,12 @@ android {
     }
 }
 
+kapt {
+    arguments {
+        arg("eventBusIndex", "com.maple.template.eventbus.index.${project.name}EventIndex")
+    }
+}
+
 dependencies {
     api project(':baseLib')
 

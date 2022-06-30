@@ -15,4 +15,7 @@
 
     <color name="common_line">#E9E9E9</color>
 
+    <color name="common_state_pressed">#E9E9E9</color>
+    <color name="common_state_normal">#F9F9F9</color>
+
 </resources>

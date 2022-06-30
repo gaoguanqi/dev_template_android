@@ -5,6 +5,12 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
+kapt {
+    arguments {
+        arg("eventBusIndex", "com.maple.template.eventbus.index.${project.name}EventIndex")
+    }
+}
+
 android {
     compileSdk rootProject.ext.android["compileSdk"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
