@@ -6,11 +6,13 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.kongqw.network.monitor.NetworkMonitorManager
 import com.kongqw.network.monitor.enums.NetworkState
 import com.kongqw.network.monitor.interfaces.NetworkMonitor
 import com.maple.baselib.utils.Event
 import com.maple.baselib.utils.EventBusUtils
+import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.utils.UIUtils
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -146,7 +148,32 @@ abstract class BaseActivity: AppCompatActivity(), IView {
     open fun <T> onStickyEventBusDispense(event: Event<T>) {}
 
     @NetworkMonitor
-    fun onNetWorkStateChange(networkState: NetworkState) {}
+    fun onNetWorkStateChange(networkState: NetworkState) {
+        onNetworkChange(networkState)
+    }
+
+    /**
+     * 子类重写此方法可监听网络状态变化,前提 hasNetworkState 必须为 true
+     * 如果 fragment 需要监听网络状态, 可使 activity 和 fragment 使用同一个 viewModule 实现监听
+     */
+    open fun onNetworkChange(networkState: NetworkState){
+        when (networkState) {
+            NetworkState.NONE -> {
+                // 暂无网络
+                LogUtils.logGGQ("--暂无网络->>>")
+            }
+            NetworkState.WIFI -> {
+                // WIFI网络
+                LogUtils.logGGQ("--WIFI网络->>>")
+            }
+
+            NetworkState.CELLULAR -> {
+                // 蜂窝网络
+                LogUtils.logGGQ("--蜂窝网络->>>")
+            }
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_used_bg"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:gravity="center"
+            android:textColor="@color/common_black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/common_tip"
+            tools:text="title" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="22dp"
+                android:layout_gravity="start"
+                android:gravity="start"
+                android:lineSpacingMultiplier="1.2"
+                android:textColor="@color/common_black"
+                android:textSize="14sp"
+                tools:text="content" />
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/selector_used_cancel"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@color/common_gray"
+                android:textSize="14sp"
+                android:text="不同意且退出" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/selector_used_define"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@color/common_white"
+                android:textSize="14sp"
+                android:text="同意并继续" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

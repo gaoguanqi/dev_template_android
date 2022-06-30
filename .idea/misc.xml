@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_used_cancel.xml" value="0.11018518518518519" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_used_define.xml" value="0.11018518518518519" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_loading_bg.xml" value="0.11018518518518519" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_used_bg.xml" value="0.11018518518518519" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_loading.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_used.xml" value="0.1" />
       </map>
     </option>
   </component>

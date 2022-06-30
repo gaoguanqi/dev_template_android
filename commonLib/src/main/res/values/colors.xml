@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="common_primary">#000000</color>
+    <color name="common_primary_dark">#000000</color>
+    <color name="common_accent">#134641</color>
+
+    <color name="common_white">#FFFFFF</color>
+    <color name="common_black">#000000</color>
+    <color name="common_trans">#00000000</color>
+    <color name="common_gray">#AAAAAA</color>
+
+    <color name="common_loading">#134641</color>
+
+    <color name="common_used_protocol">#ff6766</color>
 
 </resources>

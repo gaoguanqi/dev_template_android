@@ -85,6 +85,6 @@ dependencies {
 
     // utils
     api 'com.blankj:utilcodex:1.31.0'
-    api 'com.github.kongqw:NetworkMonitor:1.1.0'
+    api 'com.github.kongqw:NetworkMonitor:1.2.0'
 
 }

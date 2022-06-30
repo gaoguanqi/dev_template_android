@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CommonDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/common_trans</item>
+    </style>
+
+    <style name="CommonDialogBottomStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowAnimationStyle">@style/CommonDialogBottomAnim</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/common_trans</item>
+    </style>
+
+    <style name="CommonDialogBottomAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_up</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_down</item>
+    </style>
+
+</resources>
