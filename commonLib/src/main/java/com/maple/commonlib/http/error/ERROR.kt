@@ -14,6 +14,7 @@ enum class ERROR(private val code: String, private val err: String) {
      * 网络错误
      */
     NETWORD_ERROR("3000", "网络错误"),
+    NETWORD_UNCONNECTED("3001", "网络异常,请检查网络！"),
     /**
      * 协议出错
      */
