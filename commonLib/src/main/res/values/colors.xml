@@ -18,4 +18,7 @@
     <color name="common_state_pressed">#E9E9E9</color>
     <color name="common_state_normal">#F9F9F9</color>
 
+    <color name="common_snackbar_start">#1da794</color>
+    <color name="common_snackbar_end">#1da794</color>
+
 </resources>

@@ -15,6 +15,9 @@
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_used.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/my_state_empty.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_full.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_shape.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19166666666666668" />
       </map>
     </option>
   </component>
