@@ -1,0 +1,15 @@
+ext {
+    android = [
+            applicationId    : "com.maple.template",
+            compileSdk       : 31,
+            buildToolsVersion: "31.0.0",
+            minSdk           : 21,
+            targetSdk        : 31,
+            versionLibCode   : 1,
+            versionLibName   : "1.0",
+
+            /****** app 版本号 *****/
+            versionCode      : 100,
+            versionName      : "1.0.0",
+    ]
+}
