@@ -4,7 +4,6 @@ class Const {
 
     object Path {
         val IMEI_PATH: String = android.os.Environment.getExternalStorageDirectory().toString() + "/android/dev-template-imei.text"
-        val IMAGE_PATH: String = android.os.Environment.getExternalStorageDirectory().toString() + "/android/"
     }
 
     object SaveInfoKey {

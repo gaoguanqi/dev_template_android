@@ -1,5 +1,6 @@
 package com.maple.baselib.widget.dialog
 
+import android.content.DialogInterface
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,8 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.maple.baselib.utils.LogUtils
 
 
@@ -29,6 +32,12 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
 
     protected lateinit var binding: VB
     protected var savedState = false
+
+    inline fun <reified VM : ViewModel> viewModels(): Lazy<VM> {
+        return lazy {
+            ViewModelProvider(requireActivity()).get(VM::class.java)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +60,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
     }
 
     open fun showAllowStateLoss(manager: FragmentManager, tag: String) {
+        LogUtils.logGGQ("====savedState=====>>>>${savedState}")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (manager.isStateSaved) return
         }
@@ -60,7 +70,6 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
 
     override fun onStart() {
         super.onStart()
-
         val attrs = dialog?.window?.attributes?.apply {
             this.width = mWidth
             this.height = mHeight
@@ -98,7 +107,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
      * false 不可关闭
      */
     open fun getCancelable():Boolean{
-        return true
+        return false
     }
 
     override fun show(manager: FragmentManager, tag: String?) {
@@ -118,4 +127,16 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
             LogUtils.logGGQ("====catch==BaseDialogFragment=>>>${e.message}")
         }
     }
+
+    override fun dismissAllowingStateLoss() {
+        super.dismissAllowingStateLoss()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onReset()
+    }
+
+
+    open fun onReset(){}
 }

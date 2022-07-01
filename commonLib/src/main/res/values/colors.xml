@@ -7,6 +7,7 @@
     <color name="common_white">#FFFFFF</color>
     <color name="common_black">#000000</color>
     <color name="common_trans">#00000000</color>
+    <color name="common_status_bar">#FFFFFF</color>
     <color name="common_gray">#AAAAAA</color>
 
     <color name="common_loading">#134641</color>
@@ -20,5 +21,9 @@
 
     <color name="common_snackbar_start">#1da794</color>
     <color name="common_snackbar_end">#1da794</color>
+
+    <color name="common_update_pressed">#ff6766</color>
+    <color name="common_update_normal">#ef4136</color>
+
 
 </resources>
