@@ -4,6 +4,103 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="ResourceName">
 
+    <data>
+        <import type="android.view.View" />
 
+        <variable
+            name="viewModel"
+            type="com.maple.commonlib.widget.update.UpdateViewModule" />
+    </data>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:background="@drawable/xupdate_bg_app_top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/shaple_xupdate_bg"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/tv_update_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/common_black"
+                    android:textSize="16sp"
+                    android:text="@{viewModel.updateTitle}"
+                    tools:text="是否升级到1.0.1版本？" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_update_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="5dp"
+                            android:textColor="#FF666666"
+                            android:textSize="14sp"
+                            android:text="@{viewModel.updateInfo}"
+                            tools:text="1、xxxxxxxx\n2、ooooooooo" />
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+                <Button
+                    android:id="@+id/btn_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="40dp"
+                    android:text="升级"
+                    android:enabled="@{viewModel.updateState}"
+                    android:textColor="@color/common_white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_ignore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="40dp"
+                    android:text="忽略此版本"
+                    android:textColor="#FF666666"
+                    android:textSize="16sp"
+                    android:visibility="@{viewModel.ignoreState? View.VISIBLE : View.GONE}" />
+
+                <com.xuexiang.xupdate.widget.NumberProgressBar
+                    android:id="@+id/npb_progress"
+                    style="@style/common_xupdate_progressbar"
+                    android:paddingVertical="10dp"
+                    android:visibility="@{viewModel.progressState? View.VISIBLE : View.GONE}" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 </layout>

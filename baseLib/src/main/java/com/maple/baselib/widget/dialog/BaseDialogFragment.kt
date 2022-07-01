@@ -28,6 +28,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
     CoroutineScope by MainScope() {
 
     protected lateinit var binding: VB
+    protected var savedState = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +46,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+        savedState = true
         super.onSaveInstanceState(outState)
     }
 
@@ -52,6 +54,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (manager.isStateSaved) return
         }
+        if (savedState) return
         show(manager, tag)
     }
 

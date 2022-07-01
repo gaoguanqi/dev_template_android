@@ -23,4 +23,17 @@
         <item name="android:background">@color/common_line</item>
     </style>
 
+    <style name="common_xupdate_progressbar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="xnpb_max">100</item>
+        <item name="xnpb_current">0</item>
+        <item name="xnpb_unreached_color">#CCCCCC</item>
+        <item name="xnpb_reached_color">#e94339</item>
+        <item name="xnpb_text_size">12sp</item>
+        <item name="xnpb_text_color">#e94339</item>
+        <item name="xnpb_reached_bar_height">4dp</item>
+        <item name="xnpb_unreached_bar_height">3dp</item>
+    </style>
+
 </resources>

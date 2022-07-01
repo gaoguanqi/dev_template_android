@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/launch_background.xml" value="0.2101851851851852" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/splash_background.xml" value="0.2101851851851852" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_home.xml" value="0.24114583333333334" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_splash.xml" value="0.24114583333333334" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_empty.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_error.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_state_error.xml" value="0.2317948717948718" />
@@ -12,8 +16,9 @@
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_loading_bg.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_state_bg.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_used_bg.xml" value="0.11018518518518519" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shaple_xupdate_bg.xml" value="0.25333333333333335" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_loading.xml" value="0.1" />
-        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_update.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_update.xml" value="0.4" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_used.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/my_state_empty.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_full.xml" value="0.1" />

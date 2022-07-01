@@ -1,19 +1,11 @@
 package com.maple.commonlib.app
 
-import android.os.Message
 import com.kongqw.network.monitor.NetworkMonitorManager
 import com.maple.baselib.app.BaseApp
 import com.maple.baselib.manager.ForebackLifeObserver
 import com.maple.baselib.utils.LogUtils
-import com.maple.commonlib.utils.ToastUtils
 import com.maple.commonlib.widget.update.OKHttpUpdateHttpService
 import com.xuexiang.xupdate.entity.UpdateError.ERROR.CHECK_NO_NEW_VERSION
-
-import com.xuexiang.xupdate.entity.UpdateError
-
-import com.xuexiang.xupdate.listener.OnUpdateFailureListener
-
-import com.xuexiang.xupdate.utils.UpdateUtils
 
 import com.xuexiang.xupdate.XUpdate
 
