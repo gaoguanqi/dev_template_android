@@ -17,4 +17,5 @@ class Global {
         const val SUCCESS_CODE = "200"
 
     }
+
 }
