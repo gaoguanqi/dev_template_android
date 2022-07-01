@@ -1,7 +1,7 @@
-package com.zj.apublic.model.handler
+package com.maple.template.model.handler
 
-import com.zj.apublic.utils.HttpRequestUtils
-import com.zj.baselib.utils.LogUtils
+import com.maple.baselib.utils.LogUtils
+import com.maple.template.utils.HttpRequestUtils
 import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Request
