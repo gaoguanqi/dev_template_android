@@ -27,9 +27,9 @@ android {
                 def date = new Date()
                 def formattedDate = date.format('yyyyMMdd')
                 if (variant.buildType.name.equals('release')) {
-                    fileName = "开发模板_V${variant.mergedFlavor.versionName}_release_${formattedDate}.apk"
+                    fileName = "dev_app_V${variant.mergedFlavor.versionName}_release_${formattedDate}.apk"
                 } else if (variant.buildType.name.equals('debug')) {
-                    fileName = "开发模板_V${variant.mergedFlavor.versionName}_debug_${formattedDate}.apk"
+                    fileName = "dev_app_V${variant.mergedFlavor.versionName}_debug_${formattedDate}.apk"
                 }
                 outputFileName = "../../apks/" + fileName
             }
