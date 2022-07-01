@@ -40,8 +40,8 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun launchTarget() {
-//        onStartActivity(HomeActivity::class.java,isFinish = true)
-        onStartActivity(AccountActivity::class.java,isFinish = true)
+        onStartActivity(HomeActivity::class.java,isFinish = true)
+//        onStartActivity(AccountActivity::class.java,isFinish = true)
     }
 
     private fun launchSettings() {

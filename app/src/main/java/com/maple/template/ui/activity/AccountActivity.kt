@@ -6,6 +6,7 @@ import com.maple.commonlib.base.BaseActivity
 import com.maple.template.R
 
 class AccountActivity : BaseActivity() {
+
     override fun getLayoutId(): Int = R.layout.activity_account
 
     override fun initData(savedInstanceState: Bundle?) {

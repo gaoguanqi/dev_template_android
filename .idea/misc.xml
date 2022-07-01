@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12314814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/launch_background.xml" value="0.2101851851851852" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/splash_background.xml" value="0.2101851851851852" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_account.xml" value="0.1" />

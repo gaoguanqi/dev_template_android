@@ -138,5 +138,7 @@ abstract class BaseDialogFragment<VB : ViewDataBinding>(
     }
 
 
-    open fun onReset(){}
+    open fun onReset(){
+        savedState = false
+    }
 }
