@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.blankj.utilcode.util.AppUtils
+import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.widget.update.UpdateDialog
 import com.maple.template.R
 
 class HomeActivity : BaseActivity() {
+
+    override fun hasStatusBarMode(): Boolean = true
+
     private val updateDialog: UpdateDialog by lazy {
         UpdateDialog()
     }
@@ -22,5 +26,9 @@ class HomeActivity : BaseActivity() {
 
         findViewById<TextView>(R.id.tv_version).setText(AppUtils.getAppVersionName())
 
+    }
+
+    override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
+        super.setStatusBarMode(R.color.common_used_protocol, fitWindow)
     }
 }

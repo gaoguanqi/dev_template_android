@@ -76,6 +76,11 @@ abstract class BaseActivity : B(){
         }
     }
 
+    /**
+     * 设置状态栏颜色
+     * @param color R.color.common_white
+     * @param fitWindow
+     */
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
         super.setStatusBarMode(color, fitWindow)
         // 只需要设置状态栏，不需要设置导航栏
