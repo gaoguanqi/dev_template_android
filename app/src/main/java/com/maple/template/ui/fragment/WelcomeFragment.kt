@@ -51,7 +51,7 @@ class WelcomeFragment(val index: Int): BaseFragment(){
                 ivPic?.setBackgroundResource(R.drawable.welcome_3)
                 btnLaunch?.toGone()
             }
-            4 -> {
+            else -> {
                 ivPic?.setBackgroundResource(R.drawable.welcome_4)
                 btnLaunch?.toVisible()
             }
