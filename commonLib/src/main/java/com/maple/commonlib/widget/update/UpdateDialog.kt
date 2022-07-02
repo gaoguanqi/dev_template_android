@@ -1,14 +1,16 @@
 package com.maple.commonlib.widget.update
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.PathUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
 import com.maple.commonlib.databinding.DialogUpdateBinding
-import com.maple.commonlib.utils.ToastUtils.Companion.showToast
+import com.maple.commonlib.utils.ToastUtils
 import com.xuexiang.xupdate.XUpdate
 import com.xuexiang.xupdate._XUpdate
 import com.xuexiang.xupdate.service.OnFileDownloadListener
@@ -23,6 +25,7 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
 
     private val viewModel by viewModels<UpdateViewModule>()
 
+
     override fun getCancelable(): Boolean = true
 
     override fun getLayoutId(): Int = R.layout.dialog_update
@@ -34,7 +37,7 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
 
     override fun initFragment(view: View, savedInstanceState: Bundle?) {
         viewModel.defUI.toastEvent.observe(this, Observer {
-            showToast(it)
+            ToastUtils.showToast(it)
         })
 
         viewModel.ignoreEvent.observe(this, Observer {
@@ -55,6 +58,11 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
     }
 
     private fun onDownloadApk(downloadUrl: String) {
+        if(TextUtils.isEmpty(downloadUrl)) {
+            ToastUtils.showToast("无效的下载地址！")
+            dismissAllowingStateLoss()
+            return
+        }
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录
             .build()
@@ -71,7 +79,10 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
 
                 override fun onCompleted(file: File): Boolean {
                     dismissAllowingStateLoss()
-                    _XUpdate.startInstallApk(requireContext(),file)
+                    if(FileUtils.isFile(file)) {
+                        _XUpdate.startInstallApk(requireContext(),file)
+                        return true
+                    }
                     return false
                 }
 
@@ -88,6 +99,5 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
         viewModel.updateState.set(true)
         viewModel.ignoreState.set(true)
         viewModel.progressState.set(false)
-        viewModel.progressValue.set(0)
     }
 }

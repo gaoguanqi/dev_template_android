@@ -2,6 +2,8 @@ package com.maple.template.ui.activity
 
 import android.os.Bundle
 import com.blankj.utilcode.util.PermissionUtils
+import com.blankj.utilcode.util.SPUtils
+import com.maple.commonlib.app.Const
 import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.utils.PermissionUtil
 import com.maple.commonlib.utils.RequestPermission
@@ -9,6 +11,10 @@ import com.maple.template.R
 import com.tbruyelle.rxpermissions3.RxPermissions
 
 class SplashActivity : BaseActivity() {
+
+    private val isHome: Boolean by lazy {
+        SPUtils.getInstance().getBoolean(Const.SaveInfoKey.HAS_APP_FIRST)
+    }
 
     private val rxPermissions: RxPermissions by lazy { RxPermissions(this) }
 
@@ -40,8 +46,11 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun launchTarget() {
-        onStartActivity(HomeActivity::class.java,isFinish = true)
-//        onStartActivity(AccountActivity::class.java,isFinish = true)
+        if(isHome) {
+            onStartActivity(HomeActivity::class.java,isFinish = true)
+        } else {
+            onStartActivity(WelcomeActivity::class.java,isFinish = true)
+        }
     }
 
     private fun launchSettings() {

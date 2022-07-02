@@ -25,5 +25,11 @@
     <color name="common_update_pressed">#ff6766</color>
     <color name="common_update_normal">#ef4136</color>
 
+    <color name="common_indicator_normal">#ff6766</color>
+    <color name="common_indicator_active">#ef4136</color>
+
+    <color name="common_event_pressed">#ef4136</color>
+    <color name="common_event_normal">#ff6766</color>
+
 
 </resources>

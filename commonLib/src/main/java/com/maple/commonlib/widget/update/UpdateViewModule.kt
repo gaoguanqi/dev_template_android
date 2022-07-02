@@ -15,9 +15,6 @@ class UpdateViewModule: BaseViewModel(){
 
     val progressState: ObservableField<Boolean> = ObservableField(false)
 
-    val progressValue: ObservableField<Int> = ObservableField(0)
-
-
     val ignoreEvent: SingleLiveEvent<Any> = SingleLiveEvent()
 
 

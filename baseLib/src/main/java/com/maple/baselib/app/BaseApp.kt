@@ -29,7 +29,6 @@ abstract class BaseApp: Application(),  ViewModelStoreOwner{
 
     open fun initApp(){
         Utils.init(this)
-        SPUtils.getInstance(getAppPackageName())
     }
 
      fun registerLifecycle(callBack: ForebackLifeObserver.Callback) {

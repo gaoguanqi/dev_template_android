@@ -5,14 +5,17 @@
       <map>
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12314814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/launch_background.xml" value="0.2101851851851852" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/selector_event_common_.xml" value="0.20051282051282052" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/splash_background.xml" value="0.2101851851851852" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_account.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_home.xml" value="0.24114583333333334" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_splash.xml" value="0.24114583333333334" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_forget_pwd.xml" value="0.21875" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_register.xml" value="0.21875" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_welcome.xml" value="0.18125" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_empty.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_error.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_state_error.xml" value="0.2317948717948718" />
@@ -23,6 +26,7 @@
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_state_bg.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_used_bg.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shaple_xupdate_bg.xml" value="0.25333333333333335" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_download.xml" value="0.1816123188405797" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_update.xml" value="0.2" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_used.xml" value="0.1" />
