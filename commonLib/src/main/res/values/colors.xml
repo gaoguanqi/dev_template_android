@@ -31,5 +31,9 @@
     <color name="common_event_pressed">#ef4136</color>
     <color name="common_event_normal">#ff6766</color>
 
+    <color name="common_bottom_navigation">#F9F9F9</color>
+
+    <color name="common_menu_checked">#FFFFFF</color>
+    <color name="common_menu_uncheck">#55FFFFFF</color>
 
 </resources>

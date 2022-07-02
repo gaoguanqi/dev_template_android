@@ -4,7 +4,7 @@ import androidx.databinding.ObservableField
 import com.maple.baselib.manager.SingleLiveEvent
 import com.maple.commonlib.base.BaseViewModel
 
-class UpdateViewModule: BaseViewModel(){
+class UpdateViewModel: BaseViewModel(){
 
     val updateTitle: ObservableField<String> = ObservableField("升级到V1.0.1版本")
     val updateInfo: ObservableField<String> = ObservableField("1,修复bug \n 2,修复bug \n 3,修复bug \n 4,修复bug ")

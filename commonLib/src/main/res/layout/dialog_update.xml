@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.maple.commonlib.widget.update.UpdateViewModule" />
+            type="com.maple.commonlib.widget.update.UpdateViewModel" />
     </data>
 
     <LinearLayout

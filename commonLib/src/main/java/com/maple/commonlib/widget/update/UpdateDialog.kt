@@ -16,14 +16,13 @@ import com.xuexiang.xupdate._XUpdate
 import com.xuexiang.xupdate.service.OnFileDownloadListener
 import java.io.File
 
-
 // http://192.168.1.84:9000/imchat/app/20220628/i1xkwvpach7murirkyyoc7g9h1hbk14k.apk
 class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
     mHeight = (ScreenUtils.getScreenHeight() * 0.54f).toInt()){
 
     private val downloadUrl: String = "http://192.168.1.84:9000/imchat/app/20220701/a0olbwp7c9i0kteu8dj6z0os1gbky9zu.apk"
 
-    private val viewModel by viewModels<UpdateViewModule>()
+    private val viewModel by viewModels<UpdateViewModel>()
 
 
     override fun getCancelable(): Boolean = true

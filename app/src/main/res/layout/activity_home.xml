@@ -5,27 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.activity.HomeActivity">
+    tools:context=".ui.activity.HomeActivity"
+    tools:ignore="ResourceName">
 
 
-    <Button
-        android:id="@+id/btn_update"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="版本更新"
-        />
+        android:background="@color/common_bottom_navigation"
+        app:elevation="2dp"
+        app:itemIconSize="22dp"
+        app:itemTextAppearanceActive="@style/common_style_menu_active"
+        app:itemTextAppearanceInactive="@style/common_style_menu_inactive"
+        app:itemTextColor="@color/selector_menu_text"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu" />
 
-    <TextView
-        android:id="@+id/tv_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
-
-    <Button
-        android:id="@+id/btn_bsdiff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="增量更新"
-        />
 </LinearLayout>

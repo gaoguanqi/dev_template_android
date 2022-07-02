@@ -49,4 +49,12 @@
         <item name="xnpb_unreached_bar_height">6dp</item>
     </style>
 
+    <style name="common_style_menu_active">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="common_style_menu_inactive">
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

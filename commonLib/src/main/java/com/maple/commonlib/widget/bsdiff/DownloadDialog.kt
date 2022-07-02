@@ -11,7 +11,7 @@ import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
 import com.maple.commonlib.databinding.DialogDownloadBinding
 import com.maple.commonlib.utils.ToastUtils
-import com.maple.commonlib.widget.update.UpdateViewModule
+import com.maple.commonlib.widget.update.UpdateViewModel
 import com.xuexiang.xupdate.XUpdate
 import com.xuexiang.xupdate.service.OnFileDownloadListener
 import java.io.File
@@ -21,7 +21,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
     mWidth = ScreenUtils.getScreenWidth(),
     mHeight = (ScreenUtils.getScreenHeight() * 0.08f).toInt()){
 
-    private val viewModel by viewModels<UpdateViewModule>()
+    private val viewModel by viewModels<UpdateViewModel>()
 
 
     override fun getLayoutId(): Int = R.layout.dialog_download
