@@ -4,7 +4,12 @@ import com.kongqw.network.monitor.NetworkMonitorManager
 import com.maple.baselib.app.BaseApp
 import com.maple.baselib.manager.ForebackLifeObserver
 import com.maple.baselib.utils.LogUtils
+import com.maple.baselib.utils.UIUtils
+import com.maple.commonlib.R
 import com.maple.commonlib.widget.update.OKHttpUpdateHttpService
+import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.MaterialHeader
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.xuexiang.xupdate.entity.UpdateError.ERROR.CHECK_NO_NEW_VERSION
 
 import com.xuexiang.xupdate.XUpdate
@@ -13,6 +18,16 @@ import com.xuexiang.xupdate.XUpdate
 
 
 abstract class CommonApp: BaseApp() {
+
+    init {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+            layout.setPrimaryColorsId(R.color.common_white, R.color.common_primary)
+            MaterialHeader(context).setProgressBackgroundColorSchemeColor(UIUtils.getColor(R.color.white)).setColorSchemeResources(R.color.common_primary)
+        }
+
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout -> ClassicsFooter(context).setDrawableSize(14f).setTextSizeTitle(14f).setAccentColor(
+            UIUtils.getColor(R.color.common_gray)) }
+    }
 
     companion object {
         @JvmStatic

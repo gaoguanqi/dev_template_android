@@ -92,6 +92,11 @@ dependencies {
     api 'androidx.navigation:navigation-ui-ktx:2.4.2'
     androidTestApi 'androidx.navigation:navigation-testing:2.4.2'
 
+    /// refresh
+    api 'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    api 'io.github.scwang90:refresh-header-material:2.0.5'
+    api 'io.github.scwang90:refresh-footer-classics:2.0.5'
+
     api 'com.github.Zhao-Yan-Yan:MultiStatePage:2.0.5'
     api 'com.gitee.zackratos:UltimateBarX:0.8.0'
     api 'com.github.xuexiangjys:XUpdate:2.1.2'
