@@ -36,4 +36,7 @@
     <color name="common_menu_checked">#134641</color>
     <color name="common_menu_uncheck">#AAAAAA</color>
 
+    <color name="common_badge_bg">#ff6766</color>
+    <color name="common_badge_text">#F9F9F9</color>
+
 </resources>

@@ -1,17 +1,17 @@
 package com.maple.template.ui.activity
 
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.core.view.forEach
+import androidx.core.content.ContextCompat
+import androidx.core.view.forEachIndexed
 import androidx.viewpager2.widget.ViewPager2
 import com.airbnb.lottie.LottieCompositionFactory
 import com.airbnb.lottie.LottieDrawable
+import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.base.BaseFragment
@@ -37,6 +37,8 @@ class HomeActivity : BaseActivity() {
         LottieAnimation.MINE
     )
 
+    // 推荐 watch
+    // 关注 follow
     private val navTexts = arrayListOf(
         "首页",
         "通讯",
@@ -102,15 +104,43 @@ class HomeActivity : BaseActivity() {
             it.selectedItemId = 0
 
             // 处理长按 MenuItem 提示 TooltipText
-            it.menu.forEach { item ->
+            it.menu.forEachIndexed { index, item ->
                 val menuItemView = it.findViewById(item.itemId) as BottomNavigationItemView
                 menuItemView.setOnLongClickListener {
                     true
+                }
+
+                LogUtils.logGGQ("==itemId==>>${item.itemId}")
+                // 我的 增加小红点
+                if(item.itemId == (navTexts.size - 1)) {
+                    mineBadge = it.getOrCreateBadge(item.itemId)
+                    mineBadge?.let { menuBadge ->
+                        menuBadge.badgeGravity = BadgeDrawable.TOP_END
+                        menuBadge.backgroundColor = ContextCompat.getColor(this,R.color.common_badge_bg)
+                        menuBadge.badgeTextColor = ContextCompat.getColor(this, R.color.common_badge_text)
+                        menuBadge.verticalOffset = 18
+                        menuBadge.horizontalOffset = 24
+                        // badge最多显示字符，默认999+ 是4个字符（带'+'号）
+                        menuBadge.maxCharacterCount = 3
+                        mineBadge?.isVisible = false
+                    }
+
                 }
             }
         }
     }
 
+    private var mineBadge: BadgeDrawable? = null
+
+    private fun setMineBadge(number: Int) {
+        mineBadge?.number = number
+        mineBadge?.isVisible = true
+    }
+
+    private fun clearMineBadge() {
+        mineBadge?.clearNumber()
+        mineBadge?.isVisible = false
+    }
 
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
         super.setStatusBarMode(R.color.common_white, fitWindow)
