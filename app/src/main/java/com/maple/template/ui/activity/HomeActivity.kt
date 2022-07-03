@@ -1,6 +1,5 @@
 package com.maple.template.ui.activity
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +9,7 @@ import com.airbnb.lottie.LottieCompositionFactory
 import com.airbnb.lottie.LottieDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.base.BaseFragment
 import com.maple.commonlib.common.MyFragmentStateAdapter
@@ -112,6 +112,22 @@ class HomeActivity : BaseActivity() {
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
         super.setStatusBarMode(R.color.common_white, fitWindow)
     }
+
+    private var lastBackPressedMillis: Long = 0L
+
+    override fun hasEventKeyBack(): Boolean = true
+
+    override fun onKeyBack(keyCode: Int) {
+        if (lastBackPressedMillis + 2000L > System.currentTimeMillis()) {
+            //moveTaskToBack(true)
+            this@HomeActivity.onFinish()
+        } else {
+            lastBackPressedMillis = System.currentTimeMillis()
+            showToast(UIUtils.getString(R.string.exit_app))
+        }
+        super.onKeyBack(keyCode)
+    }
+
 
     private fun Menu.setLottieDrawable(lottieAnimationList: List<LottieAnimation>, bottomNavBar: BottomNavigationView) {
         for (i in lottieAnimationList.indices) {
