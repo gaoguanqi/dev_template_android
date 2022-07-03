@@ -26,6 +26,7 @@
         app:labelVisibilityMode="labeled"
         app:itemTextAppearanceActive="@style/common_style_menu_active"
         app:itemTextAppearanceInactive="@style/common_style_menu_inactive"
-        app:itemTextColor="@color/selector_menu_text"/>
+        app:itemTextColor="@color/selector_menu_text"
+        app:itemIconTint="@color/selector_menu_icon"/>
 
 </LinearLayout>
