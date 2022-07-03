@@ -46,8 +46,6 @@ class HomeActivity : BaseActivity() {
         "我的"
     )
 
-
-
     override fun hasStatusBarMode(): Boolean = true
 
     override fun getLayoutId(): Int = R.layout.activity_home

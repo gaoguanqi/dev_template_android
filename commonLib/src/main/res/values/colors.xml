@@ -39,4 +39,7 @@
     <color name="common_badge_bg">#ff6766</color>
     <color name="common_badge_text">#F9F9F9</color>
 
+    <color name="common_tab_bg">#FFFFFF</color>
+    <color name="common_tab_text">#FF8A64EB</color>
+
 </resources>
