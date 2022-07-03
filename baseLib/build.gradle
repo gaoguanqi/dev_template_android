@@ -71,6 +71,8 @@ dependencies {
     api 'androidx.fragment:fragment-ktx:1.4.0'
     api 'androidx.recyclerview:recyclerview:1.2.1'
     api 'androidx.multidex:multidex:2.0.1'
+    api 'androidx.cardview:cardview:1.0.0'
+
 
     /// kotlin
     api 'org.jetbrains.kotlin:kotlin-stdlib:1.5.20'

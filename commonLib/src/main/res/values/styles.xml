@@ -50,11 +50,11 @@
     </style>
 
     <style name="common_style_menu_active">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="common_style_menu_inactive">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

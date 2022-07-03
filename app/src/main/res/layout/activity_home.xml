@@ -12,6 +12,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
+        android:overScrollMode="never"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
@@ -21,11 +22,10 @@
         android:layout_height="wrap_content"
         android:background="@color/common_bottom_navigation"
         app:elevation="2dp"
-        app:itemIconSize="22dp"
+        app:itemIconSize="34dp"
+        app:labelVisibilityMode="labeled"
         app:itemTextAppearanceActive="@style/common_style_menu_active"
         app:itemTextAppearanceInactive="@style/common_style_menu_inactive"
-        app:itemTextColor="@color/selector_menu_text"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+        app:itemTextColor="@color/selector_menu_text"/>
 
 </LinearLayout>
