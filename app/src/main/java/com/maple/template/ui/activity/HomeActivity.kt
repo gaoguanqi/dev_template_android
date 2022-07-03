@@ -75,6 +75,21 @@ class HomeActivity : BaseActivity() {
             it.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
+                    when(position) {
+                        0 -> {
+                            LogUtils.logGGQ("首页")
+                        }
+                        1 -> {
+                            LogUtils.logGGQ("通讯")
+                        }
+                        2 -> {
+                            LogUtils.logGGQ("发现")
+                        }
+                        3 -> {
+                            LogUtils.logGGQ("我的")
+                            clearMineBadge()
+                        }
+                    }
                 }
             })
         }
@@ -127,6 +142,10 @@ class HomeActivity : BaseActivity() {
 
                 }
             }
+
+            // 设置随机数小红点
+            val random = (0..199).random()
+            setMineBadge(random)
         }
     }
 
