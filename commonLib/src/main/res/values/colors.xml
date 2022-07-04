@@ -5,6 +5,7 @@
     <color name="common_accent">#000000</color>
 
     <color name="common_white">#FFFFFF</color>
+    <color name="common_white_alpha">#33FFFFFF</color>
     <color name="common_black">#000000</color>
     <color name="common_trans">#00000000</color>
     <color name="common_status_bar">#FFFFFF</color>

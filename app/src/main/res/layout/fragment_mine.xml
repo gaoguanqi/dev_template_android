@@ -52,31 +52,46 @@
                             android:layout_gravity="center_vertical"
                             android:background="@drawable/pic_default_avatar" />
 
-                        <LinearLayout
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:orientation="vertical">
+                            android:layout_marginStart="10dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="1dp"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="1dp"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/common_title"
+                                    android:text="用户名"
+                                    tools:text="用户名" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/common_title"
+                                    android:text="手机号"
+                                    tools:text="手机号" />
+                            </LinearLayout>
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:elevation="4dp"
+                                android:textColor="@color/common_white"
+                                android:background="@drawable/selector_event_alpha"
                                 android:textSize="14sp"
-                                android:textColor="@color/common_title"
-                                android:text="用户名"
-                                tools:text="用户名" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp"
-                                android:textSize="12sp"
-                                android:textColor="@color/common_title"
-                                android:text="手机号"
-                                tools:text="手机号" />
-                        </LinearLayout>
+                                android:text="请登录" />
+                        </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
 
