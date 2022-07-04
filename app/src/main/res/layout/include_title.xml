@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_toolbar"
+    style="@style/common_style_toolbar"
+    app:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp"
+    tools:ignore="ResourceName">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/common_ll_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/common_ibtn_title_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/common_padding"
+                android:paddingEnd="@dimen/common_gap"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:contentDescription="@string/common_back"
+                android:src="@drawable/selector_back" />
+
+            <TextView
+                android:id="@+id/common_tv_title_left"
+                style="@style/common_style_title_txt"
+                android:visibility="gone"
+                tools:text="@string/common_back" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/common_tv_title_center"
+            style="@style/common_style_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/common_app_name" />
+
+        <LinearLayout
+            android:id="@+id/common_ll_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/common_tv_title_right"
+                style="@style/common_style_title_txt"
+                android:visibility="gone"
+                tools:text="@string/common_search" />
+
+            <ImageButton
+                android:id="@+id/common_ibtn_title_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/common_gap"
+                android:paddingEnd="@dimen/common_padding"
+                android:contentDescription="@string/common_close"
+                android:background="@null"
+                android:src="@drawable/selector_close"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.Toolbar>

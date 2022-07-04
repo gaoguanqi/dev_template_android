@@ -1,6 +1,13 @@
 <resources>
     <string name="common_app_name">commonLib</string>
 
+    <string name="common_text_cancel">取消</string>
+    <string name="common_text_confirm">确定</string>
+    <string name="common_back">返回</string>
+    <string name="common_side">侧边</string>
+    <string name="common_close">关闭</string>
+    <string name="common_search">搜索</string>
+
     <string name="common_tip">温馨提示</string>
 
     <string name="common_loading">请等待...</string>

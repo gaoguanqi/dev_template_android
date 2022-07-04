@@ -1,19 +1,20 @@
 package com.maple.template.ui.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.maple.baselib.ext.layoutInflater
+import com.maple.baselib.utils.LogUtils
 import com.maple.commonlib.base.BaseFragment
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.commonlib.common.MyFragmentStateAdapter
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMainBinding
 import com.maple.template.vm.HomeViewModel
+import com.zackratos.ultimatebarx.ultimatebarx.java.UltimateBarX.statusBarOnly
+import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 
 class MainFragment : BaseViewFragment<FragmentMainBinding,HomeViewModel>() {
 
@@ -24,9 +25,10 @@ class MainFragment : BaseViewFragment<FragmentMainBinding,HomeViewModel>() {
         }
     }
 
+    override fun hasStatusBarMode(): Boolean = true
+
     private val fragmentList: MutableList<BaseFragment> = mutableListOf()
     private val tabNameList: MutableList<String> = mutableListOf()
-
 
     private val viewModel by viewModels<HomeViewModel>()
 
@@ -58,4 +60,7 @@ class MainFragment : BaseViewFragment<FragmentMainBinding,HomeViewModel>() {
         this.binding.viewModel = viewModel
     }
 
+    override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
+        super.setStatusBarMode(R.color.common_white, fitWindow)
+    }
 }

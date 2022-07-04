@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12314814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/launch_background.xml" value="0.2101851851851852" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/layer_tab_indicator.xml" value="0.23020833333333332" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/selector_event_common_.xml" value="0.20051282051282052" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/shape_tab_indicator.xml" value="0.1935185185185185" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/drawable/splash_background.xml" value="0.2101851851851852" />
@@ -23,8 +24,13 @@
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_register.xml" value="0.21875" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_watch_tab.xml" value="0.20516304347826086" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/fragment_welcome.xml" value="0.18125" />
+        <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/include_title.xml" value="0.21331521739130435" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/layout/tab_nav_item.xml" value="0.20208333333333334" />
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.153125" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_back.xml" value="0.23020833333333332" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_back_press.xml" value="0.23020833333333332" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_close.xml" value="0.23020833333333332" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_close_press.xml" value="0.23020833333333332" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_next.xml" value="0.1814814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_empty.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_error.xml" value="0.2317948717948718" />
@@ -41,7 +47,7 @@
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_update.xml" value="0.2" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_used.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/my_state_empty.xml" value="0.1" />
-        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_full.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_full.xml" value="0.176" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/snackbar_view_shape.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19166666666666668" />
       </map>

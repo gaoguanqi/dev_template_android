@@ -25,5 +25,4 @@ class WatchTabFragment : BaseViewFragment<FragmentWatchTabBinding, HomeViewModel
     override fun bindViewModel() {
         this.binding.viewModel = viewModel
     }
-
 }

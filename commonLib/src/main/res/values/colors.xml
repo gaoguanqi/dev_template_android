@@ -9,6 +9,9 @@
     <color name="common_trans">#00000000</color>
     <color name="common_status_bar">#FFFFFF</color>
     <color name="common_gray">#AAAAAA</color>
+    <color name="common_background">#FFFFFF</color>
+
+    <color name="common_title">#FFFFFF</color>
 
     <color name="common_loading">#134641</color>
 
@@ -16,11 +19,16 @@
 
     <color name="common_line">#E9E9E9</color>
 
+    <color name="common_toolbar">#FF8A64EB</color>
+
     <color name="common_state_pressed">#E9E9E9</color>
     <color name="common_state_normal">#F9F9F9</color>
 
-    <color name="common_snackbar_start">#1da794</color>
-    <color name="common_snackbar_end">#1da794</color>
+    <color name="common_snackbar_start">#8064E8DE</color>
+    <color name="common_snackbar_end">#FF8A64EB</color>
+
+    <color name="common_indicator_start">#FF8A64EB</color>
+    <color name="common_indicator_end">#8064E8DE</color>
 
     <color name="common_update_pressed">#ff6766</color>
     <color name="common_update_normal">#ef4136</color>

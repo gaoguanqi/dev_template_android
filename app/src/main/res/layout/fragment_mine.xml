@@ -19,19 +19,19 @@
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/common_toolbar"
             app:elevation="0dp">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                app:statusBarScrim="@color/white">
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
 
                 <!--封面图片-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="160dp"
                     android:orientation="vertical"
                     android:paddingTop="?attr/actionBarSize"
                     app:elevation="8dp"
@@ -39,31 +39,51 @@
                     app:layout_collapseParallaxMultiplier="0.7">
 
                     <LinearLayout
+                        android:id="@+id/ll_user"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingStart="20dp"
-                        android:paddingTop="20dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="10dp">
+                        android:paddingHorizontal="20dp">
 
                         <ImageView
                             android:id="@+id/iv_avatar"
                             android:layout_width="62dp"
-                            android:layout_height="62dp"/>
+                            android:layout_height="62dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/pic_default_avatar" />
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="1dp"
+                                android:textSize="14sp"
+                                android:textColor="@color/common_title"
+                                android:text="用户名"
+                                tools:text="用户名" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/common_title"
+                                android:text="手机号"
+                                tools:text="手机号" />
+                        </LinearLayout>
                     </LinearLayout>
-
-                    <View
-                        style="@style/common_style_line" />
-
                 </LinearLayout>
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/white"
                     app:contentInsetEnd="0dp"
                     app:contentInsetLeft="0dp"
                     app:contentInsetRight="0dp"
@@ -79,7 +99,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
-                            android:text="title"
+                            android:text="我的"
+                            android:textColor="@color/common_title"
+                            android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -105,15 +127,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="10dp">
-
-                </LinearLayout>
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="42dp">
@@ -124,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_launcher"
+                        android:src="@android:drawable/ic_menu_compass"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:src="@drawable/app_launcher"
+                        android:src="@android:drawable/ic_menu_compass"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
@@ -195,6 +208,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
@@ -207,12 +221,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:textColor="@color/common_black"
+                    android:textSize="14sp"
                     android:text="退出登录" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:background="@color/common_line" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
