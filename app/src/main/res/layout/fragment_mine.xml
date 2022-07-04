@@ -116,7 +116,6 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:fillViewport="true"
             android:overScrollMode="never"
             android:scrollbars="none"
@@ -170,11 +169,6 @@
                         app:layout_constraintStart_toEndOf="@id/iv_setting" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:background="@color/common_line" />
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -216,13 +210,17 @@
                     android:layout_height="10dp"
                     android:background="@color/common_line" />
 
-                <Button
-                    style="?android:attr/borderlessButtonStyle"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:textColor="@color/common_black"
-                    android:textSize="14sp"
-                    android:text="退出登录" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="aaaa" />
+                </LinearLayout>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

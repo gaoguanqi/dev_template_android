@@ -21,6 +21,14 @@
 
     <color name="common_toolbar">#FF8A64EB</color>
 
+    <color name="common_pressed">#694d9f</color>
+    <color name="common_normal">#FF8A64EB</color>
+    <color name="common_enable">#338A64EB</color>
+
+    <color name="common_gradient_start">#1da794</color>
+    <color name="common_gradient_end">#1da794</color>
+
+
     <color name="common_state_pressed">#E9E9E9</color>
     <color name="common_state_normal">#F9F9F9</color>
 
