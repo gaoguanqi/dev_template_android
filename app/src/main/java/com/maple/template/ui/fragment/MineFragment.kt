@@ -3,9 +3,12 @@ package com.maple.template.ui.fragment
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import com.google.android.material.appbar.AppBarLayout
 import com.maple.baselib.ext.toGone
 import com.maple.baselib.ext.toVisible
+import com.maple.baselib.utils.LogUtils
+import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
@@ -26,32 +29,38 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
 
-    private val showAnimation: AlphaAnimation by lazy {
-        AlphaAnimation(0.0f,1.0f).apply {
-            this.duration = 500
-            this.setAnimationListener(object : Animation.AnimationListener{
-                override fun onAnimationStart(animation: Animation?) {}
-
-                override fun onAnimationEnd(animation: Animation?) {
-                    binding.llUser.toVisible()
+    private var isAnimShow: Boolean = false
+    private val showAnimation by lazy {
+        AnimationUtils.loadAnimation(requireContext(),R.anim.zoom_show).apply {
+            this.setAnimationListener(object :Animation.AnimationListener{
+                override fun onAnimationStart(animation: Animation?) {
+                    isAnimShow = true
                 }
 
-                override fun onAnimationRepeat(animation: Animation?) {}
+                override fun onAnimationEnd(animation: Animation?) {
+                    isAnimShow = false
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+                }
             })
         }
     }
 
-    private val hideAnimation: AlphaAnimation by lazy {
-        AlphaAnimation(1.0f,0.0f).apply {
-            this.duration = 500
-            this.setAnimationListener(object : Animation.AnimationListener{
-                override fun onAnimationStart(animation: Animation?) {}
-
-                override fun onAnimationEnd(animation: Animation?) {
-
+    private var isAnimHide: Boolean = false
+    private val hideAnimation by lazy {
+        AnimationUtils.loadAnimation(requireContext(),R.anim.zoom_hide).apply {
+            this.setAnimationListener(object :Animation.AnimationListener{
+                override fun onAnimationStart(animation: Animation?) {
+                    isAnimHide = true
                 }
 
-                override fun onAnimationRepeat(animation: Animation?) {}
+                override fun onAnimationEnd(animation: Animation?) {
+                    isAnimHide = false
+                }
+
+                override fun onAnimationRepeat(animation: Animation?) {
+                }
             })
         }
     }
@@ -63,14 +72,18 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                 override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
                     if (verticalOffset == 0) {
                         //展开
-                        it.llUser.startAnimation(showAnimation)
-                        binding.llUser.toVisible()
-                    } else if (Math.abs(verticalOffset) >= binding.appBarLayout.totalScrollRange) {
+                        if(!isAnimShow) {
+                            it.llUser.startAnimation(showAnimation)
+                        }
+                        it.llUser.toVisible()
+                    } else if (Math.abs(verticalOffset) == (binding.appBarLayout.totalScrollRange)) {
                         //折叠
-                        it.llUser.startAnimation(hideAnimation)
-                        binding.llUser.toGone()
-                    } else { //中间
-
+                        if(!isAnimHide) {
+                            it.llUser.startAnimation(hideAnimation)
+                        }
+                        it.llUser.toGone()
+                    } else {
+                        //中间
                     }
                 }
             })
