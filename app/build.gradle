@@ -52,6 +52,8 @@ dependencies {
     implementation 'com.tencent:mmkv:1.2.11'
     implementation 'com.github.zhpanvip:bannerviewpager:3.5.6'
     implementation 'com.airbnb.android:lottie:5.2.0'
+    // exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
 
 
 }

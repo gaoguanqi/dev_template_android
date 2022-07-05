@@ -90,6 +90,7 @@
                                 android:textColor="@color/common_white"
                                 android:background="@drawable/selector_event_alpha"
                                 android:textSize="14sp"
+                                android:onClick="@{(v) -> viewModel.onOpenAccount()}"
                                 android:text="请登录" />
                         </FrameLayout>
                     </LinearLayout>

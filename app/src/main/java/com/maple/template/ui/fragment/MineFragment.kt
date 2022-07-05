@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.lifecycle.Observer
 import com.google.android.material.appbar.AppBarLayout
 import com.maple.baselib.ext.toGone
 import com.maple.baselib.ext.toVisible
@@ -12,6 +13,7 @@ import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
+import com.maple.template.ui.activity.AccountActivity
 import com.maple.template.vm.HomeViewModel
 
 class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
@@ -88,6 +90,10 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                 }
             })
         }
+
+        viewModel.accountEvent.observe(this, Observer {
+            onStartActivity(AccountActivity::class.java)
+        })
     }
 
     override fun bindViewModel() {
