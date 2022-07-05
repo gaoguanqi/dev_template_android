@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--文件 res/value/attr.xml-->
+    <!--虚线-->
+    <declare-styleable name="DashLineView" tools:ignore="ResourceName">
+        <attr name="line_space" format="dimension"/>
+        <attr name="blank_space" format="dimension"/>
+        <attr name="line_color" format="color"/>
+        <attr name="orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--点-->
+    <declare-styleable name="DotView" tools:ignore="ResourceName">
+        <attr name="dotColor" format="color|reference"/>
+        <attr name="dotStyle" format="enum">
+            <enum name="FILL" value="0"/>
+            <enum name="STROKE" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <!--带显示和隐藏密码编辑框-->
+    <declare-styleable name="EyeEditText" tools:ignore="ResourceName">
+        <attr name="eyeShowIcon" format="reference"/>
+        <attr name="eyeHideIcon" format="reference"/>
+    </declare-styleable>
+
+    <!--带清除图标编辑框-->
+    <declare-styleable name="ClearEditText" tools:ignore="ResourceName">
+        <attr name="clearIcon" format="reference"/>
+        <attr name="clearPressIcon" format="reference"/>
+    </declare-styleable>
+</resources>

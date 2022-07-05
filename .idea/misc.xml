@@ -35,8 +35,12 @@
         <entry key="..\:/maple/dev/dev_template_android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.153125" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_back.xml" value="0.23020833333333332" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_back_press.xml" value="0.23020833333333332" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_clear_normal.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_clear_prass.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_close.xml" value="0.23020833333333332" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_close_press.xml" value="0.23020833333333332" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_eye_hide.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_eye_show.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/ic_next.xml" value="0.1814814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_empty.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/pic_state_error.xml" value="0.2317948717948718" />
