@@ -64,7 +64,6 @@ class ClearEditText @JvmOverloads constructor(
     }
 
 
-
     private fun isClearButtonVisible(): Boolean {
         return compoundDrawablesRelative[2] != null
     }

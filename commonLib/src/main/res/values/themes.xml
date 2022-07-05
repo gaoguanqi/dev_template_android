@@ -5,4 +5,9 @@
         <item name="colorPrimaryDark">@color/common_primary_dark</item>
         <item name="colorAccent">@color/common_accent</item>
     </style>
+
+    <style name="CommonCheckBox" parent="Theme.MaterialComponents.Light.DarkActionBar.Bridge">
+        <item name="colorControlNormal">@color/common_normal</item>
+        <item name="colorControlActivated">@color/common_pressed</item>
+    </style>
 </resources>
