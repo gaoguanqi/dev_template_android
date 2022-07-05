@@ -139,15 +139,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp"/>
 
-            <Button
+            <com.maple.template.widget.view.LoadingButton
+                android:id="@+id/lbtn_login"
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:text="登录"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:drawableLeft="@drawable/ic_password"
-                android:background="@drawable/selector_common"
-                android:textColor="@color/common_white" />
+                android:layout_height="wrap_content"
+                app:txt="登录" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -155,6 +151,7 @@
                 android:layout_marginTop="6dp">
 
                 <Button
+                    android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -166,6 +163,7 @@
                     android:textSize="14sp" />
 
                 <Button
+                    android:id="@+id/btn_forget"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
