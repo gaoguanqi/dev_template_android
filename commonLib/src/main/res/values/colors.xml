@@ -24,7 +24,7 @@
 
     <color name="common_pressed">#694d9f</color>
     <color name="common_normal">#FF8A64EB</color>
-    <color name="common_enable">#338A64EB</color>
+    <color name="common_enable">#998A64EB</color>
 
     <color name="common_gradient_start">#FF8A64EB</color>
     <color name="common_gradient_end">#FF8A64EB</color>

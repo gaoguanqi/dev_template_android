@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_loading"
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:layout_gravity="center"
+    android:background="@drawable/selector_common"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/common_white_alpha"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="gone"
+        android:paddingEnd="2dp" />
+
+    <TextView
+        android:id="@+id/tv_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="2dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        tools:text="测试" />
+</LinearLayout>

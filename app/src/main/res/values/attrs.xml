@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--文件 res/value/attr.xml-->
+    <!--加载按钮-->
+    <declare-styleable name="LoadingButton" tools:ignore="ResourceName">
+        <attr name="txt" format="string"/>
+    </declare-styleable>
+
+</resources>

@@ -13,6 +13,7 @@ import com.maple.template.R
 import com.maple.template.app.MyApplication
 import com.maple.template.databinding.FragmentLoginBinding
 import com.maple.template.vm.AccountViewModel
+import com.maple.template.widget.view.LoadingButton
 
 class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>() {
 
@@ -38,6 +39,27 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             player.setMediaItem(MediaItem.fromUri(rawSource.uri!!))
             player.prepare()
             player.play()
+
+
+
+            bd.lbtnLogin.setListener(object : LoadingButton.OnListener{
+                override fun onStart() {
+                    bd.lbtnLogin.onLoading()
+                    showToast("点击")
+                }
+
+                override fun onStop() {
+                    bd.lbtnLogin.onCancel()
+                }
+            })
+
+            bd.btnRegister.setOnClickListener {
+                bd.lbtnLogin.setActiveState()
+            }
+            bd.btnForget.setOnClickListener {
+                bd.lbtnLogin.onCancel()
+            }
+
         }
     }
 
