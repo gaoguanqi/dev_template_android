@@ -46,13 +46,13 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun launchTarget() {
-//        if(isHome) {
-//            onStartActivity(HomeActivity::class.java,isFinish = true)
-//        } else {
-//            onStartActivity(WelcomeActivity::class.java,isFinish = true)
-//        }
+        if(isHome) {
+            onStartActivity(HomeActivity::class.java,isFinish = true)
+        } else {
+            onStartActivity(WelcomeActivity::class.java,isFinish = true)
+        }
 
-        onStartActivity(AccountActivity::class.java,isFinish = true)
+//        onStartActivity(AccountActivity::class.java,isFinish = true)
     }
 
     private fun launchSettings() {

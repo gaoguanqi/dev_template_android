@@ -108,7 +108,7 @@ class HomeActivity : BaseActivity() {
             it.setOnNavigationItemSelectedListener { item ->
                 handleNavigationItem(item)
                 // 联动 ViewPager2
-                pager?.setCurrentItem(item.itemId, true)
+                pager?.setCurrentItem(item.itemId, false)
                 true
             }
             it.setOnNavigationItemReselectedListener { item ->

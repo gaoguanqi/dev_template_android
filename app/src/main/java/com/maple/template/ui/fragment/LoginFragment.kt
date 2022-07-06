@@ -37,6 +37,9 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
     //使用协议
     private val usedContent: String by lazy { UIUtils.getString(R.string.used_agree) }
 
+    private val player by lazy {
+        ExoPlayer.Builder(requireContext()).build()
+    }
 
     override fun hasNavController(): Boolean = true
 
@@ -68,7 +71,6 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
 
             val rawSource =  RawResourceDataSource(requireContext())
             rawSource.open(DataSpec(RawResourceDataSource.buildRawResourceUri(R.raw.video_login_hd)))
-            val player = ExoPlayer.Builder(requireContext()).build()
             bd.player.player = player
             // ExoPlayer兼容所有类型的视频宽高比
             bd.player.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
@@ -78,7 +80,7 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             player.play()
 
             bd.ibtnClose.setOnClickListener {
-                showToast("关闭")
+                requireActivity().finish()
             }
             bd.btnHelp.setOnClickListener {
                 showToast("帮助")
@@ -197,5 +199,7 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
 
     override fun onDestroy() {
         super.onDestroy()
+        player.stop()
+        player.release()
     }
 }
