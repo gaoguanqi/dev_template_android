@@ -41,6 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageButton
+                android:id="@+id/ibtn_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/common_close"
@@ -51,6 +52,7 @@
                 android:src="@drawable/selector_close_help" />
 
             <Button
+                android:id="@+id/btn_help"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -88,12 +90,14 @@
                     android:src="@drawable/ic_account" />
 
                 <EditText
+                    android:id="@+id/et_account"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:layout_height="match_parent"/>
 
                 <ImageButton
+                    android:id="@+id/ibtn_account_clear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -121,12 +125,14 @@
                     android:src="@drawable/ic_password" />
 
                 <EditText
+                    android:id="@+id/et_password"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:layout_height="match_parent"/>
 
                 <ImageButton
+                    android:id="@+id/ibtn_password_eye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -188,6 +194,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <CheckBox
+                android:id="@+id/cb_agree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -196,6 +203,7 @@
                 android:gravity="center" />
 
             <TextView
+                android:id="@+id/tv_agree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"

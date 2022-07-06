@@ -84,13 +84,13 @@
                             </LinearLayout>
 
                             <Button
+                                android:id="@+id/btn_login"
                                 android:layout_width="wrap_content"
                                 android:layout_height="34dp"
                                 android:elevation="4dp"
                                 android:textColor="@color/common_white"
                                 android:background="@drawable/selector_event_alpha"
                                 android:textSize="14sp"
-                                android:onClick="@{(v) -> viewModel.onOpenAccount()}"
                                 android:text="请登录" />
                         </FrameLayout>
                     </LinearLayout>
@@ -236,6 +236,7 @@
 
 
                 <Button
+                    android:id="@+id/btn_login_switch"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:elevation="4dp"
@@ -243,7 +244,7 @@
                     android:textColor="@color/common_white"
                     android:background="@drawable/selector_common"
                     android:textSize="14sp"
-                    android:text="退出登录" />
+                    android:text="请登录" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

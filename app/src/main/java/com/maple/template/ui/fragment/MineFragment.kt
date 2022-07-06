@@ -68,32 +68,39 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        this.binding.let {
-            it.appBarLayout.addOnOffsetChangedListener(object :
+        this.binding.let { bd ->
+            bd.appBarLayout.addOnOffsetChangedListener(object :
                 AppBarLayout.OnOffsetChangedListener {
                 override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
                     if (verticalOffset == 0) {
                         //展开
                         if(!isAnimShow) {
-                            it.llUser.startAnimation(showAnimation)
+                            bd.llUser.startAnimation(showAnimation)
                         }
-                        it.llUser.toVisible()
+                        bd.llUser.toVisible()
                     } else if (Math.abs(verticalOffset) == (binding.appBarLayout.totalScrollRange)) {
                         //折叠
                         if(!isAnimHide) {
-                            it.llUser.startAnimation(hideAnimation)
+                            bd.llUser.startAnimation(hideAnimation)
                         }
-                        it.llUser.toGone()
+                        bd.llUser.toGone()
                     } else {
                         //中间
                     }
                 }
             })
-        }
 
-        viewModel.accountEvent.observe(this, Observer {
-            onStartActivity(AccountActivity::class.java)
-        })
+            bd.btnLogin.setOnClickListener {
+                onOpenAccount()
+            }
+            bd.btnLoginSwitch.setOnClickListener {
+                onOpenAccount()
+            }
+        }
+    }
+
+    private fun onOpenAccount() {
+        onStartActivity(AccountActivity::class.java)
     }
 
     override fun bindViewModel() {

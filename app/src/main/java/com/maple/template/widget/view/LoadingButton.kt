@@ -37,6 +37,10 @@ class LoadingButton  @JvmOverloads constructor(
         UIUtils.getDrawable(R.drawable.selector_common)
     }
 
+    private val normalDrawable by lazy {
+        UIUtils.getDrawable(R.drawable.shape_common_normal)
+    }
+
     private var listener: OnListener? = null
 
     fun setListener(l: OnListener?) {
@@ -78,6 +82,14 @@ class LoadingButton  @JvmOverloads constructor(
         }
     }
 
+    fun setNormalState() {
+        llLoading?.let {
+            if(it.background != normalDrawable) {
+                it.background = normalDrawable
+            }
+        }
+    }
+
     fun setActiveState() {
         llLoading?.let {
             if(it.background != activeDrawable) {
@@ -89,6 +101,7 @@ class LoadingButton  @JvmOverloads constructor(
     fun onLoading() {
         progressBar?.toVisible()
         tvTxt?.text = "请稍后..."
+        setNormalState()
     }
 
     fun onCancel() {
@@ -99,6 +112,5 @@ class LoadingButton  @JvmOverloads constructor(
 
     interface OnListener {
         fun onStart()
-        fun onStop()
     }
 }
