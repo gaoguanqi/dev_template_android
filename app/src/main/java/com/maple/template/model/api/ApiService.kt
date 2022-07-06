@@ -11,6 +11,6 @@ interface ApiService {
 
     @Headers("${Global.DOMAIN}:${Global.URL_FINAL}")
     @POST(ApiURL.URL_USER_LOGIN)
-    suspend fun login(@Body requestBody: RequestBody): BaseResp
+    suspend fun loginPhone(@Body requestBody: RequestBody): BaseResp
 
 }

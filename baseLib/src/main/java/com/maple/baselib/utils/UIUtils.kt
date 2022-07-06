@@ -1,5 +1,7 @@
 package com.maple.baselib.utils
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -9,9 +11,7 @@ import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.blankj.utilcode.util.ColorUtils
-import com.blankj.utilcode.util.ResourceUtils
-import com.blankj.utilcode.util.SizeUtils
+import com.blankj.utilcode.util.*
 import com.blankj.utilcode.util.StringUtils
 
 class UIUtils {
@@ -43,6 +43,12 @@ class UIUtils {
                 iv.setImageDrawable(showIcon)
             }
             field.setSelection(field.text.length)
+        }
+
+        fun hideKeyboard(context: Activity) {
+            if(KeyboardUtils.isSoftInputVisible(context)) {
+                KeyboardUtils.hideSoftInput(context)
+            }
         }
 
         private var lastClickTime: Long = 0L

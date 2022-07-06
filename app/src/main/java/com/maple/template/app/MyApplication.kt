@@ -3,6 +3,7 @@ package com.maple.template.app
 import android.app.Application
 import androidx.lifecycle.ViewModelStore
 import com.maple.commonlib.app.CommonApp
+import com.tencent.mmkv.MMKV
 
 class MyApplication : CommonApp() {
 
@@ -23,7 +24,9 @@ class MyApplication : CommonApp() {
     override fun getAppPackageName(): String = this.packageName
 
 
-    override fun initSDK(app: Application) {}
+    override fun initSDK(app: Application) {
+        MMKV.initialize(this)
+    }
 
     override fun getViewModelStore(): ViewModelStore = ViewModelStore()
 }

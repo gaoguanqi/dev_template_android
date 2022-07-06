@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
+import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.PhoneUtils
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -17,6 +19,8 @@ import com.maple.baselib.utils.StringUtils
 import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.commonlib.utils.MySpannableString
+import com.maple.commonlib.utils.RegexUtils
+import com.maple.commonlib.utils.ToastUtils
 import com.maple.template.R
 import com.maple.template.databinding.FragmentLoginBinding
 import com.maple.template.vm.AccountViewModel
@@ -43,7 +47,25 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
     override fun getLayoutId(): Int = R.layout.fragment_login
 
     override fun initData(savedInstanceState: Bundle?) {
+        viewModel.defUI.showDialog.observe(this, Observer {
+            showLoading()
+        })
+
+        viewModel.defUI.dismissDialog.observe(this, Observer {
+            dismissLoading()
+        })
+
+        viewModel.defUI.toastEvent.observe(this, Observer {
+            showToast(it)
+        })
+
         this.binding.let { bd ->
+
+            bd.etAccount.setText("13717591366")
+            bd.etPassword.setText("gaoguanqi")
+
+            setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()))
+
             val rawSource =  RawResourceDataSource(requireContext())
             rawSource.open(DataSpec(RawResourceDataSource.buildRawResourceUri(R.raw.video_login_hd)))
             val player = ExoPlayer.Builder(requireContext()).build()
@@ -74,16 +96,40 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
 
             bd.etPassword.afterTextChanged {
                 if(!TextUtils.isEmpty(it)) {
+                    bd.ibtnPasswordEye.toVisible()
                     setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()))
                 } else {
+                    bd.ibtnPasswordEye.toGone()
                     setLoginState(false)
                 }
             }
 
             bd.lbtnLogin.setListener(object : LoadingButton.OnListener{
                 override fun onStart() {
+                    val account: String = bd.etAccount.text.toString().trim()
+                    val password: String = bd.etPassword.text.toString().trim()
+                    if(TextUtils.isEmpty(account)) {
+                        ToastUtils.showSnackBar(requireContext(),"请输入手机号")
+                        return
+                    }
+                    if(TextUtils.isEmpty(password)) {
+                        ToastUtils.showSnackBar(requireContext(),"请输入密码")
+                        return
+                    }
+
+                    if(!RegexUtils.isPhone(account)) {
+                        ToastUtils.showSnackBar(requireContext(),"无效的手机号")
+                        return
+                    }
+
+                    if(!RegexUtils.isPassword(password)) {
+                        ToastUtils.showSnackBar(requireContext(),"无效的密码")
+                        return
+                    }
+
                     bd.lbtnLogin.onLoading()
-                    showToast("点击")
+                    UIUtils.hideKeyboard(requireActivity())
+                    viewModel.onLogin(account,password)
                 }
             })
 

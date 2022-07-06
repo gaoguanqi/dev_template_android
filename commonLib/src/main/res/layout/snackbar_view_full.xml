@@ -5,8 +5,7 @@
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/common_primary"
-    android:elevation="20dp"
+    android:background="@drawable/shape_snackbar_full_bg"
     tools:ignore="ResourceName">
 
     <LinearLayout

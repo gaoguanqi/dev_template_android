@@ -98,7 +98,7 @@
                     android:textColor="#694d9f"
                     android:hint="请输入账号"
                     android:textColorHint="#AAAAAA"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:layout_height="match_parent"/>
 
                 <ImageButton
@@ -148,7 +148,7 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingHorizontal="6dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_eye_hide" />
             </LinearLayout>

@@ -8,7 +8,9 @@ class HttpRequestUtils {
 
     companion object{
 
-        private val mmkv: MMKV = MMKV.defaultMMKV()
+        private val mmkv: MMKV by lazy {
+            MMKV.defaultMMKV()
+        }
 
         fun requestHeader(): WeakHashMap<String, Any> {
             val header: WeakHashMap<String, Any> = WeakHashMap()
