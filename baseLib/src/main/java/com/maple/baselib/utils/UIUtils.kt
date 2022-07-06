@@ -1,6 +1,11 @@
 package com.maple.baselib.utils
 
 import android.graphics.drawable.Drawable
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -27,6 +32,17 @@ class UIUtils {
 
         fun getSize(dp: Float): Int{
             return SizeUtils.px2dp(dp)
+        }
+
+        fun editTransformation(field: EditText, iv: ImageView, showIcon: Drawable, hideIcon: Drawable) {
+            if(field.transformationMethod == HideReturnsTransformationMethod.getInstance()) {
+                field.transformationMethod = PasswordTransformationMethod.getInstance()
+                iv.setImageDrawable(hideIcon)
+            } else {
+                field.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                iv.setImageDrawable(showIcon)
+            }
+            field.setSelection(field.text.length)
         }
 
         private var lastClickTime: Long = 0L

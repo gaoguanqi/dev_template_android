@@ -3,4 +3,7 @@
 
     <string name="exit_app">再按一次退出程序</string>
 
+
+    <string name="used_agree">我已认真阅读并同意《用户使用协议》及《隐私条款》</string>
+
 </resources>

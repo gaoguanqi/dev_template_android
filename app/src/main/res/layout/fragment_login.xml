@@ -94,14 +94,20 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:textSize="14sp"
+                    android:textColor="#694d9f"
+                    android:hint="请输入账号"
+                    android:textColorHint="#AAAAAA"
+                    android:inputType="text"
                     android:layout_height="match_parent"/>
 
                 <ImageButton
                     android:id="@+id/ibtn_account_clear"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingHorizontal="6dp"
+                    android:visibility="gone"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_clear_normal" />
             </LinearLayout>
@@ -129,14 +135,20 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:textSize="14sp"
+                    android:textColor="#694d9f"
+                    android:hint="请输入密码"
+                    android:textColorHint="#AAAAAA"
+                    android:inputType="textPassword"
                     android:layout_height="match_parent"/>
 
                 <ImageButton
                     android:id="@+id/ibtn_password_eye"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@null"
                     android:paddingHorizontal="6dp"
+                    android:visibility="visible"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_eye_hide" />
             </LinearLayout>
@@ -210,7 +222,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textColor="@color/common_white"
-                android:text="我已认真阅读并同意《用户使用协议》及《隐私条款》" />
+                android:text="@string/used_agree" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

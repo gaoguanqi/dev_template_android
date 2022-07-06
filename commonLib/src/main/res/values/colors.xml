@@ -59,4 +59,6 @@
     <color name="common_tab_bg">#FFFFFF</color>
     <color name="common_tab_text">#FF8A64EB</color>
 
+    <color name="common_agree_text">#FF8A64EB</color>
+
 </resources>

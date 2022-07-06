@@ -82,7 +82,7 @@ class LoadingButton  @JvmOverloads constructor(
         }
     }
 
-    fun setNormalState() {
+    private fun setNormalState() {
         llLoading?.let {
             if(it.background != normalDrawable) {
                 it.background = normalDrawable
