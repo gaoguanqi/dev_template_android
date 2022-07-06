@@ -64,7 +64,7 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             bd.etAccount.setText("13717591366")
             bd.etPassword.setText("gaoguanqi")
 
-            setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()))
+            setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()) && bd.cbAgree.isChecked)
 
             val rawSource =  RawResourceDataSource(requireContext())
             rawSource.open(DataSpec(RawResourceDataSource.buildRawResourceUri(R.raw.video_login_hd)))
@@ -87,17 +87,17 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             bd.etAccount.afterTextChanged {
                 if(!TextUtils.isEmpty(it)) {
                     bd.ibtnAccountClear.toVisible()
-                    setLoginState(StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()))
+                    setLoginState(StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()) && bd.cbAgree.isChecked)
                 } else {
                     bd.ibtnAccountClear.toGone()
-                    setLoginState(true)
+                    setLoginState(false)
                 }
             }
 
             bd.etPassword.afterTextChanged {
                 if(!TextUtils.isEmpty(it)) {
                     bd.ibtnPasswordEye.toVisible()
-                    setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()))
+                    setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && bd.cbAgree.isChecked)
                 } else {
                     bd.ibtnPasswordEye.toGone()
                     setLoginState(false)
@@ -149,6 +149,13 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
                 UIUtils.editTransformation(bd.etPassword,it as ImageView,eyeShowDrawable,eyeHideDrawable)
             }
 
+            bd.cbAgree.setOnCheckedChangeListener { buttonView, isChecked ->
+                if(isChecked) {
+                    setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()))
+                } else {
+                    setLoginState(false)
+                }
+            }
             bd.tvAgree.let {
                 val mss = MySpannableString(requireContext(), usedContent)
                     .first("《用户使用协议》").onClick(it) {
