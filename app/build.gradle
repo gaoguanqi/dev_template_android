@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.airbnb.android:lottie:5.2.0'
     // exoplayer
     implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
+    // banner
+    implementation 'com.github.zhpanvip:bannerviewpager:3.5.6'
 
 
 }
