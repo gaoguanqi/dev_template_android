@@ -1,6 +1,7 @@
 package com.maple.commonlib.base
 
 import android.text.TextUtils
+import com.maple.baselib.base.ViewState
 import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.utils.NetworkUtil
 import com.maple.commonlib.http.error.ERROR
@@ -40,7 +41,7 @@ open class BaseViewModel: B() {
             return
         }
         if (isShowDialog) defUI.onShowDialog()
-        launchUI {
+        launchUI(block = {
             handleException(
                 withContext(Dispatchers.IO) { block },
                 {
@@ -53,7 +54,15 @@ open class BaseViewModel: B() {
                     }
                 }
             )
-        }
+        },err = {
+            if(isShowDialog) {
+                defUI.onDismissDialog()
+            }
+            if(defUI.getUIState() == ViewState.LOADING) {
+                defUI.showUIError()
+            }
+            LogUtils.logGGQ("==err==>>>${it.toString()}")
+        })
     }
 
     /**
@@ -81,7 +90,7 @@ open class BaseViewModel: B() {
             return
         }
         if (isShowDialog) defUI.onShowDialog()
-        launchUI {
+        launchUI(block = {
             handleException<BaseResp>(
                 { withContext(Dispatchers.IO) { block() } },
                 { res ->
@@ -99,7 +108,15 @@ open class BaseViewModel: B() {
                     }
                 }
             )
-        }
+        },err = {
+            if(isShowDialog) {
+                defUI.onDismissDialog()
+            }
+            if(defUI.getUIState() == ViewState.LOADING) {
+                defUI.showUIError()
+            }
+            LogUtils.logGGQ("==err==>>>${it.toString()}")
+        })
     }
 
     /**

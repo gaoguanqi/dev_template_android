@@ -52,6 +52,7 @@ class AccountViewModel: BaseViewModel(){
                 }
             }
         }, complete = {
+            LogUtils.logGGQ("=====complete=====")
             loginEvent.call()
         })
     }

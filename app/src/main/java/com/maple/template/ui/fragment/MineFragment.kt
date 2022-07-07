@@ -14,9 +14,12 @@ import com.google.android.material.appbar.AppBarLayout
 import com.maple.baselib.ext.toGone
 import com.maple.baselib.ext.toVisible
 import com.maple.baselib.utils.LogUtils
+import com.maple.baselib.utils.StringUtils
 import com.maple.baselib.utils.UIUtils
 import com.maple.commonlib.app.Const
 import com.maple.commonlib.base.BaseViewFragment
+import com.maple.commonlib.ext.load
+import com.maple.commonlib.ext.loadCircle
 import com.maple.commonlib.widget.dialog.CommonDialog
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
@@ -135,6 +138,21 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                 }
             })
 
+            bd.clSetting.setOnClickListener {
+                viewModel.userInfoLiveData.value?.let {
+                    showToast("设置")
+                }?:let {
+                    showToast("请登录")
+                }
+            }
+            bd.clAbout.setOnClickListener {
+                viewModel.userInfoLiveData.value?.let {
+                    showToast("关于")
+                }?:let {
+                    showToast("请登录")
+                }
+            }
+
             bd.btnUnlogin.setOnClickListener {
                 onOpenAccount()
             }
@@ -191,11 +209,17 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                 this.btnUnlogin.toGone()
                 this.btnLogin.toGone()
                 this.btnLogout.toVisible()
+                val avatarUrl: String = viewModel?.userInfoLiveData?.value?.avatarUrl?:""
+                LogUtils.logGGQ("==avatarUrl===>>${avatarUrl}")
+                if(StringUtils.isNotEmpty(avatarUrl)) {
+                    this.ivAvatar.loadCircle(avatarUrl)
+                }
             } else {
                 this.btnUnlogin.toVisible()
                 this.llInfo.toGone()
                 this.btnLogin.toVisible()
                 this.btnLogout.toGone()
+                this.ivAvatar.load(R.drawable.pic_default_avatar)
             }
         }
     }

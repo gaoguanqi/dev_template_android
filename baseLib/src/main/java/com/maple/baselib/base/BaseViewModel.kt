@@ -1,6 +1,5 @@
 package com.maple.baselib.base
 
-import android.text.TextUtils
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,20 +31,11 @@ abstract class BaseViewModel: ViewModel(), LifecycleObserver {
      * 所有网络请求都在 viewModelScope 域中启动，当页面销毁时会自动
      * 调用ViewModel的  #onCleared 方法取消所有协程
      */
-    fun launchUI(block: suspend CoroutineScope.() -> Unit) = viewModelScope.launch {
+    fun launchUI(block: suspend CoroutineScope.() -> Unit, err: suspend CoroutineScope.(e: String?) -> Unit) = viewModelScope.launch {
         try {
             block()
         }catch (e: Exception) {
-            LogUtils.logGGQ("error--->launchUI->${e.message}")
-            if(TextUtils.isEmpty(e.message)) {
-                defUI.onToast("请求异常,请稍后重试！！！")
-            } else {
-                defUI.onToast("${e.message}")
-            }
-            defUI.onDismissDialog()
-            if(defUI.getUIState() == ViewState.LOADING) {
-                defUI.showUIError()
-            }
+            err(e.message)
         }
     }
 
