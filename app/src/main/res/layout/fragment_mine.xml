@@ -59,38 +59,42 @@
                             android:layout_marginStart="10dp">
 
                             <LinearLayout
+                                android:id="@+id/ll_info"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:visibility="gone"
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv_nickname"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="1dp"
                                     android:textSize="14sp"
                                     android:textColor="@color/common_title"
-                                    android:text="用户名"
+                                    android:text="@{viewModel.userInfoLiveData.nickName}"
                                     tools:text="用户名" />
 
                                 <TextView
+                                    android:id="@+id/tv_phone"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="1dp"
                                     android:textSize="12sp"
                                     android:textColor="@color/common_title"
-                                    android:text="手机号"
+                                    android:text="@{viewModel.userInfoLiveData.phone}"
                                     tools:text="手机号" />
                             </LinearLayout>
 
                             <Button
-                                android:id="@+id/btn_login"
+                                android:id="@+id/btn_unlogin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="34dp"
                                 android:elevation="4dp"
                                 android:textColor="@color/common_white"
                                 android:background="@drawable/selector_event_alpha"
                                 android:textSize="14sp"
+                                android:visibility="gone"
                                 android:text="请登录" />
                         </FrameLayout>
                     </LinearLayout>
@@ -235,16 +239,34 @@
                 </LinearLayout>
 
 
-                <Button
-                    android:id="@+id/btn_login_switch"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:elevation="4dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:textColor="@color/common_white"
-                    android:background="@drawable/selector_common"
-                    android:textSize="14sp"
-                    android:text="请登录" />
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:elevation="4dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:textColor="@color/common_white"
+                        android:background="@drawable/selector_common"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        android:text="请登录" />
+
+                    <Button
+                        android:id="@+id/btn_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:elevation="4dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:textColor="@color/common_white"
+                        android:background="@drawable/selector_common"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        android:text="退出登录" />
+                </FrameLayout>
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

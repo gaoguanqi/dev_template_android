@@ -6,4 +6,9 @@
 
     <string name="used_agree">我已认真阅读并同意《用户使用协议》及《隐私条款》</string>
 
+    <string name="logout_title">退出登录</string>
+    <string name="logout_content">您确定退出账号？</string>
+    <string name="logout_cancel">取消</string>
+    <string name="logout_confirm">退出</string>
+
 </resources>

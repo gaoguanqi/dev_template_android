@@ -54,17 +54,21 @@
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_box_agree.xml" value="0.24166666666666667" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_close.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_close_help.xml" value="0.24166666666666667" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_common_left.xml" value="0.19739583333333333" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_common_right.xml" value="0.19739583333333333" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_state_error.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_update_confirm.xml" value="0.21944444444444444" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_used_cancel.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/selector_used_define.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_account_bg.xml" value="0.1" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_common_bg.xml" value="0.19739583333333333" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_loading_bg.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_snackbar_bg.xml" value="0.1814814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_snackbar_full_bg.xml" value="0.1814814814814815" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_state_bg.xml" value="0.2317948717948718" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shape_used_bg.xml" value="0.11018518518518519" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/drawable/shaple_xupdate_bg.xml" value="0.25333333333333335" />
+        <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_common.xml" value="0.18125" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_download.xml" value="0.1816123188405797" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_loading.xml" value="0.1" />
         <entry key="..\:/maple/dev/dev_template_android/commonLib/src/main/res/layout/dialog_update.xml" value="0.2" />

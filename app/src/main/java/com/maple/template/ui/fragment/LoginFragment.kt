@@ -17,6 +17,7 @@ import com.maple.baselib.ext.toGone
 import com.maple.baselib.ext.toVisible
 import com.maple.baselib.utils.StringUtils
 import com.maple.baselib.utils.UIUtils
+import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.commonlib.utils.MySpannableString
 import com.maple.commonlib.utils.RegexUtils
@@ -62,10 +63,19 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             showToast(it)
         })
 
+        viewModel.loginEvent.observe(this, Observer {
+            this.binding.lbtnLogin.onCancel()
+        })
+
+        viewModel.userInfoLiveData.observe(this, Observer {
+            it?.let { userInfo ->
+                onFinish()
+            }
+        })
         this.binding.let { bd ->
 
-            bd.etAccount.setText("13717591366")
-            bd.etPassword.setText("gaoguanqi")
+            bd.etAccount.setText("13717591367")
+            bd.etPassword.setText("123456")
 
             setLoginState(StringUtils.isNotEmpty(bd.etAccount.text.toString().trim()) && StringUtils.isNotEmpty(bd.etPassword.text.toString().trim()) && bd.cbAgree.isChecked)
 
@@ -80,7 +90,7 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
             player.play()
 
             bd.ibtnClose.setOnClickListener {
-                requireActivity().finish()
+                onFinish()
             }
             bd.btnHelp.setOnClickListener {
                 showToast("帮助")
@@ -197,6 +207,10 @@ class LoginFragment : BaseViewFragment<FragmentLoginBinding, AccountViewModel>()
         }
     }
 
+
+    private fun onFinish() {
+        (requireActivity() as BaseActivity).onFinish()
+    }
     override fun onDestroy() {
         super.onDestroy()
         player.stop()

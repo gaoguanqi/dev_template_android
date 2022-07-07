@@ -61,4 +61,7 @@
 
     <color name="common_agree_text">#FF8A64EB</color>
 
+    <color name="common_confirm_text">#FF8A64EB</color>
+    <color name="common_cancel_text">#998A64EB</color>
+
 </resources>
