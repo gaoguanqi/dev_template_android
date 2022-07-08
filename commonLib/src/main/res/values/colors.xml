@@ -4,6 +4,10 @@
     <color name="common_primary_dark">#FFFFFF</color>
     <color name="common_accent">#000000</color>
 
+    <color name="common_refresh_1">#FF8A64EB</color>
+    <color name="common_refresh_2">#ff6766</color>
+    <color name="common_refresh_3">#8064E8DE</color>
+
     <color name="common_white">#FFFFFF</color>
     <color name="common_white_alpha">#33FFFFFF</color>
     <color name="common_black">#000000</color>

@@ -22,7 +22,7 @@ abstract class CommonApp: BaseApp() {
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
             layout.setPrimaryColorsId(R.color.common_white, R.color.common_primary)
-            MaterialHeader(context).setProgressBackgroundColorSchemeColor(UIUtils.getColor(R.color.white)).setColorSchemeResources(R.color.common_primary)
+            MaterialHeader(context).setProgressBackgroundColorSchemeColor(UIUtils.getColor(R.color.white)).setColorSchemeResources(R.color.common_refresh_1, R.color.common_refresh_2, R.color.common_refresh_3)
         }
 
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout -> ClassicsFooter(context).setDrawableSize(14f).setTextSizeTitle(14f).setAccentColor(

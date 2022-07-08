@@ -2,4 +2,7 @@
 <resources>
 
 
+    <color name="banner_indicator_normal">#998A64EB</color>
+    <color name="banner_indicator_checked">#FF8A64EB</color>
+
 </resources>
