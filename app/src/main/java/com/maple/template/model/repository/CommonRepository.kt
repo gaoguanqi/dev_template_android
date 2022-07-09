@@ -35,4 +35,13 @@ class CommonRepository : BaseRepository() {
         LogUtils.logGGQ("---------------")
         retrofitClient.getBanner(keyword,type,page,limit)
     }
+
+    suspend fun getRecordList(keyword: String, page: Int, limit: Int) = withContext(Dispatchers.IO) {
+        LogUtils.logGGQ("----请求参数----")
+        LogUtils.logGGQ("---- ${keyword} ---")
+        LogUtils.logGGQ("---- ${page} ---")
+        LogUtils.logGGQ("---- ${limit} ---")
+        LogUtils.logGGQ("---------------")
+        retrofitClient.getRecordList(keyword,page,limit)
+    }
 }

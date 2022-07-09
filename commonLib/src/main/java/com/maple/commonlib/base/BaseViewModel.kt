@@ -17,6 +17,28 @@ import com.maple.baselib.base.BaseViewModel as B
 
 open class BaseViewModel: B() {
 
+    var page: Int = 0
+
+    var limit: Int = 10
+
+    fun resetPage() {
+        this.page = 1
+        this.limit = 10
+    }
+
+    private fun nextPage() {
+        this.page += 1
+    }
+
+    var hasLoadMore: Boolean = false
+    fun setLoadMore(current: Int, pages: Int) {
+        hasLoadMore = current < pages
+        if(hasLoadMore) {
+            nextPage()
+        }
+    }
+
+
 
     /**
      *  不过滤请求结果
