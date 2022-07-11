@@ -20,6 +20,7 @@ import com.maple.commonlib.app.Const
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.commonlib.ext.load
 import com.maple.commonlib.ext.loadCircle
+import com.maple.commonlib.widget.bsdiff.DownloadDialog
 import com.maple.commonlib.widget.dialog.CommonDialog
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
@@ -60,6 +61,10 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
     private val viewModel by viewModels<HomeViewModel>()
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
+
+    private val downloadDialog: DownloadDialog by lazy {
+        DownloadDialog()
+    }
 
     private var isAnimShow: Boolean = false
     private val showAnimation by lazy {
@@ -116,6 +121,11 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
             setUserInfoStateView(false)
         }
 
+        viewModel.appInfoLiveData.observe(this, Observer {
+            downloadDialog.setDownloadUrl(it.downloadUrl)
+           downloadDialog.showAllowStateLoss(this.childFragmentManager,"downloadDialog")
+        })
+
         this.binding.let { bd ->
             bd.appBarLayout.addOnOffsetChangedListener(object :
                 AppBarLayout.OnOffsetChangedListener {
@@ -137,6 +147,11 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                     }
                 }
             })
+            bd.clBsdiff.setOnClickListener {
+//                showToast("增量更新")
+                //
+                viewModel.checkBsdiff()
+            }
 
             bd.clSetting.setOnClickListener {
                 viewModel.userInfoLiveData.value?.let {

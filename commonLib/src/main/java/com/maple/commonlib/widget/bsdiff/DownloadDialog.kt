@@ -7,6 +7,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.PathUtils
 import com.blankj.utilcode.util.ScreenUtils
+import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
 import com.maple.commonlib.databinding.DialogDownloadBinding
@@ -23,6 +24,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
     private val viewModel by viewModels<UpdateViewModel>()
 
+    private var downloadUrl: String? = null
 
     override fun getLayoutId(): Int = R.layout.dialog_download
 
@@ -36,15 +38,16 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
             ToastUtils.showToast(it)
         })
 
-        onDownloadFile("")
+        onDownloadFile(downloadUrl)
     }
 
-    private fun onDownloadFile(downloadUrl: String) {
+    private fun onDownloadFile(downloadUrl: String?) {
         if(TextUtils.isEmpty(downloadUrl)) {
             ToastUtils.showToast("无效的下载地址！")
             dismissAllowingStateLoss()
             return
         }
+        LogUtils.logGGQ("下载地址--->${downloadUrl}")
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录
             .build()
@@ -64,6 +67,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
                 override fun onError(throwable: Throwable) {
                     viewModel.defUI.onToast("增量更新失败！")
+                    dismissAllowingStateLoss()
                 }
             })
     }
@@ -72,5 +76,9 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
     override fun onReset() {
         super.onReset()
 
+    }
+
+    fun setDownloadUrl(url: String?) {
+        this.downloadUrl = url
     }
 }

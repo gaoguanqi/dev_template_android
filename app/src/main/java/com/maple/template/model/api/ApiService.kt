@@ -2,6 +2,7 @@ package com.maple.template.model.api
 
 import com.maple.commonlib.app.Global
 import com.maple.commonlib.http.resp.BaseResp
+import com.maple.template.model.entity.AppInfoEntity
 import com.maple.template.model.entity.BannerEntity
 import com.maple.template.model.entity.LoginEntity
 import com.maple.template.model.entity.RecordPageEntity
@@ -30,4 +31,13 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("limit") limit: Int,
     ): RecordPageEntity
+
+
+    @Headers("${Global.DOMAIN}:${Global.URL_FINAL}")
+    @GET(ApiURL.URL_BSDIFF_APP)
+    suspend fun checkBsdiff(
+        @Query("appId") appId: String,
+        @Query("diffCode") diffCode: String,
+        @Query("versionCode") versionCode: String,
+    ): AppInfoEntity
 }

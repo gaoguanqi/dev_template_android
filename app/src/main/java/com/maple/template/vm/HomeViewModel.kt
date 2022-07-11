@@ -7,6 +7,7 @@ import com.maple.baselib.utils.LogUtils
 import com.maple.commonlib.base.BaseViewModel
 import com.maple.template.db.DBHelper
 import com.maple.template.db.UserInfo
+import com.maple.template.model.entity.AppInfoEntity
 import com.maple.template.model.entity.BannerEntity
 import com.maple.template.model.entity.LoginEntity
 import com.maple.template.model.entity.RecordPageEntity
@@ -51,6 +52,21 @@ class HomeViewModel: BaseViewModel(){
             }
         }, error = {
             defUI.showUIError()
+        })
+    }
+
+    val appInfoLiveData: MutableLiveData<AppInfoEntity.Data.AppInfo> = MutableLiveData()
+    fun checkBsdiff() {
+        launchOnlyResult(block = {
+            repository.checkBsdiff("com.maple.template","1","101")
+        }, success = {
+            it.let { data ->
+                val entity = GsonUtils.fromJson(GsonUtils.toJson(data), AppInfoEntity::class.java)
+                LogUtils.logGGQ("==entity==>>>${entity.code}")
+                entity?.data?.appInfo?.let { info ->
+                    appInfoLiveData.postValue(info)
+                }
+            }
         })
     }
 
@@ -127,4 +143,6 @@ class HomeViewModel: BaseViewModel(){
                 loadMoreEvent.call()
             })
     }
+
+
 }
