@@ -17,10 +17,14 @@ import com.maple.baselib.base.BaseViewModel as B
 
 open class BaseViewModel: B() {
 
-    var page: Int = 0
-
-    var limit: Int = 10
-
+    private var page: Int = 0
+    fun getPage(): Int {
+        return page
+    }
+    private var limit: Int = 10
+    fun getLimit(): Int {
+        return limit
+    }
     fun resetPage() {
         this.page = 1
         this.limit = 10
@@ -30,10 +34,13 @@ open class BaseViewModel: B() {
         this.page += 1
     }
 
-    var hasLoadMore: Boolean = false
-    fun setLoadMore(current: Int, pages: Int) {
-        hasLoadMore = current < pages
-        if(hasLoadMore) {
+    private var hasNoMoreData: Boolean = false
+    fun getNoMoreData(): Boolean {
+        return hasNoMoreData
+    }
+    fun setNoMoreData(isNoMoreData: Boolean) {
+        this.hasNoMoreData = isNoMoreData
+        if(this.hasNoMoreData) {
             nextPage()
         }
     }

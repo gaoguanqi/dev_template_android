@@ -29,6 +29,7 @@ class HomeViewModel: BaseViewModel(){
 
 
     val bannerList: MutableLiveData<List<BannerEntity.Data.Banner>> = MutableLiveData()
+
     fun getBanner() {
         defUI.showUILoading()
         launchOnlyResult(isShowDialog = false, block = {
@@ -62,19 +63,22 @@ class HomeViewModel: BaseViewModel(){
     val recordRefreshList: MutableLiveData<List<RecordPageEntity.Data.RecordList>> = MutableLiveData()
     val recordLoadMoreList: MutableLiveData<List<RecordPageEntity.Data.RecordList>> = MutableLiveData()
 
+    var total: Int = 0
+
     fun getRecordList() {
         resetPage()
         launchOnlyResult(
             isShowDialog = false,
             block = {
-                repository.getRecordList("",page, limit)
+                repository.getRecordList("",getPage(), getLimit())
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
+                    total = entity?.data?.total?:0
+                    setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let { list ->
                         if(list.isNotEmpty()) {
                             recordList.postValue(list)
-                            setLoadMore(entity.data.current,entity.data.pages)
                         }
                     }
                 }
@@ -86,14 +90,15 @@ class HomeViewModel: BaseViewModel(){
         launchOnlyResult(
             isShowDialog = false,
             block = {
-                repository.getRecordList("",page, limit)
+                repository.getRecordList("",getPage(), getLimit())
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
+                    total = entity?.data?.total?:0
+                    setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let { list ->
                         if(list.isNotEmpty()) {
                             recordRefreshList.postValue(list)
-                            setLoadMore(entity.data.current,entity.data.pages)
                         }
                     }
                 }
@@ -106,14 +111,15 @@ class HomeViewModel: BaseViewModel(){
         launchOnlyResult(
             isShowDialog = false,
             block = {
-                repository.getRecordList("",page, limit)
+                repository.getRecordList("",getPage(), getLimit())
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
+                    total = entity?.data?.total?:0
+                    setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let {
                         if (it.isNotEmpty()) {
                             recordLoadMoreList.postValue(it)
-                            setLoadMore(entity.data.current,entity.data.pages)
                         }
                     }
                 }

@@ -31,20 +31,25 @@ class RecordAdapter(val context: Context): RecyclerView.Adapter<RecyclerView.Vie
     private val list: MutableList<RecordPageEntity.Data.RecordList> = mutableListOf()
     private val banner: MutableList<BannerEntity.Data.Banner> = mutableListOf()
 
+    private var total:Int = 0
+
+
     fun setListener(listener: OnClickListener?) {
         this.listener = listener
     }
 
-    fun setList(l: List<RecordPageEntity.Data.RecordList>?) {
+    fun setList(l: List<RecordPageEntity.Data.RecordList>?, total: Int) {
         if(!l.isNullOrEmpty()) {
+            this.total = total
             this.list.clear()
             this.list.addAll(l)
             this.notifyDataSetChanged()
         }
     }
 
-    fun upDataList(l: List<RecordPageEntity.Data.RecordList>?) {
+    fun upDataList(l: List<RecordPageEntity.Data.RecordList>?,total: Int) {
         if(!l.isNullOrEmpty()) {
+            this.total = total
             this.list.addAll(l)
             this.notifyDataSetChanged()
         }
@@ -86,7 +91,7 @@ class RecordAdapter(val context: Context): RecyclerView.Adapter<RecyclerView.Vie
         if ((holder is BannerViewHolder)) {
             holder.setData(banner)
         } else if ((holder is ListViewHolder)){
-            holder.setData(list.get(position - 1))
+            holder.setData(position,list.get(position - 1))
         }
     }
 
@@ -103,12 +108,14 @@ class RecordAdapter(val context: Context): RecyclerView.Adapter<RecyclerView.Vie
 
     inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val itemRoot: CardView = itemView.findViewById(R.id.item_root)
+        private val tvIndex: TextView = itemView.findViewById(R.id.tv_index)
         private val tvUsername: TextView = itemView.findViewById(R.id.tv_username)
         private val tvPhone: TextView = itemView.findViewById(R.id.tv_phone)
         private val tvIp: TextView = itemView.findViewById(R.id.tv_ip)
         private val tvTime: TextView = itemView.findViewById(R.id.tv_time)
-        fun setData(data: RecordPageEntity.Data.RecordList?) {
+        fun setData(pos: Int, data: RecordPageEntity.Data.RecordList?) {
             data?.let {
+                tvIndex.text = "${pos} -- ${total}"
                 tvUsername.text = it.username
                 tvPhone.text = it.phone
                 tvIp.text = it.ip

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maple.baselib.utils.LogUtils
+import com.maple.baselib.utils.NetworkUtil
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.template.R
 import com.maple.template.databinding.FragmentWatchTabBinding
@@ -78,13 +79,16 @@ class WatchTabFragment : BaseViewFragment<FragmentWatchTabBinding, HomeViewModel
         })
 
         viewModel.recordList.observe(this, Observer {
-            listAdapter.setList(it)
+            listAdapter.setList(it,viewModel.total)
+            setNoMoreData(viewModel.getNoMoreData())
         })
         viewModel.recordRefreshList.observe(this, Observer {
-            listAdapter.setList(it)
+            listAdapter.setList(it,viewModel.total)
+            setNoMoreData(viewModel.getNoMoreData())
         })
         viewModel.recordLoadMoreList.observe(this, Observer {
-            listAdapter.upDataList(it)
+            listAdapter.upDataList(it,viewModel.total)
+            setNoMoreData(viewModel.getNoMoreData())
         })
 
         binding.let { bd ->
@@ -92,9 +96,20 @@ class WatchTabFragment : BaseViewFragment<FragmentWatchTabBinding, HomeViewModel
                 this.setEnableRefresh(true)//是否启用下拉刷新功能
                 this.setEnableLoadMore(true)//是否启用上拉加载功能
                 this.setOnRefreshListener {
-
+                    if(NetworkUtil.isConnected()) {
+                        onRefreshData()
+                    } else {
+                        showToast("请检查网络！")
+                        finishRefresh()
+                    }
                 }
                 this.setOnLoadMoreListener {
+                    if(NetworkUtil.isConnected()) {
+                        onLoadMoreData()
+                    } else {
+                        showToast("请检查网络！")
+                        finishLoadMore()
+                    }
 
                 }
             }
@@ -119,10 +134,24 @@ class WatchTabFragment : BaseViewFragment<FragmentWatchTabBinding, HomeViewModel
         }
     }
 
+    private fun setNoMoreData(noMoreData: Boolean) {
+        binding.refreshLayout.let {
+            it.setNoMoreData(noMoreData)
+        }
+    }
+
     //结束加载更多
     private fun finishLoadMore() {
         binding.refreshLayout.let {
             if (it.isLoading) it.finishLoadMore()
         }
+    }
+
+    private fun onRefreshData() {
+        viewModel.refreshRecordList()
+    }
+
+    private fun onLoadMoreData() {
+        viewModel.loadMoreRecordList()
     }
 }
