@@ -45,6 +45,14 @@ class CommonRepository : BaseRepository() {
         retrofitClient.getRecordList(keyword,page,limit)
     }
 
+    suspend fun checkVersion(appId: String, appType: String) = withContext(Dispatchers.IO) {
+        LogUtils.logGGQ("----请求参数----")
+        LogUtils.logGGQ("---- ${appId} ---")
+        LogUtils.logGGQ("---- ${appType} ---")
+        LogUtils.logGGQ("---------------")
+        retrofitClient.checkVersion(appId,appType)
+    }
+
     suspend fun checkBsdiff(appId: String,diffCode: String, versionCode: String) = withContext(Dispatchers.IO) {
         LogUtils.logGGQ("----请求参数----")
         LogUtils.logGGQ("---- ${appId} ---")

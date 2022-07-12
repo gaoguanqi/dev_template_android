@@ -16,6 +16,14 @@ import com.maple.commonlib.widget.update.UpdateViewModel
 import com.xuexiang.xupdate.XUpdate
 import com.xuexiang.xupdate.service.OnFileDownloadListener
 import java.io.File
+import com.blankj.utilcode.util.AppUtils
+
+import com.maple.commonlib.utils.PatchUtil
+
+import android.os.Environment
+
+
+
 
 class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
     mGravity = Gravity.TOP,
@@ -62,6 +70,27 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
                 override fun onCompleted(file: File): Boolean {
                     dismissAllowingStateLoss()
+
+//                    new Thread(() -> {
+//                        File oldApkFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "old.apk");
+//                        File newApkFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "new.apk");
+//                        File patchFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "patch");
+//                        PatchUtil.patchAPK(oldApkFile.getAbsolutePath(),newApkFile.getAbsolutePath(),patchFile.getAbsolutePath());
+//                        //安装APK
+//                        AppUtils.installApp(newApkFile);
+//                    }).start();
+
+//                    Thread {
+//                        PatchUtil.patchAPK(
+//                            oldApkFile.absolutePath,
+//                            newApkFile.absolutePath,
+//                            patchFile.absolutePath
+//                        )
+//                        //安装APK
+//                        AppUtils.installApp(newApkFile)
+//                    }.start()
+
+
                     return false
                 }
 

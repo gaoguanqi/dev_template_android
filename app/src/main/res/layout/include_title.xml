@@ -2,7 +2,7 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/common_toolbar"
+    android:id="@+id/toolbar"
     style="@style/common_style_toolbar"
     app:contentInsetEnd="0dp"
     app:contentInsetLeft="0dp"
@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/common_ll_title_left"
+            android:id="@+id/ll_title_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/common_ibtn_title_left"
+                android:id="@+id/ibtn_title_left"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingStart="@dimen/common_padding"
@@ -36,14 +36,14 @@
                 android:src="@drawable/selector_back" />
 
             <TextView
-                android:id="@+id/common_tv_title_left"
+                android:id="@+id/tv_title_left"
                 style="@style/common_style_title_txt"
                 android:visibility="gone"
                 tools:text="@string/common_back" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/common_tv_title_center"
+            android:id="@+id/tv_title_center"
             style="@style/common_style_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             tools:text="@string/common_app_name" />
 
         <LinearLayout
-            android:id="@+id/common_ll_title_right"
+            android:id="@+id/ll_title_right"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -63,13 +63,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/common_tv_title_right"
+                android:id="@+id/tv_title_right"
                 style="@style/common_style_title_txt"
                 android:visibility="gone"
                 tools:text="@string/common_search" />
 
             <ImageButton
-                android:id="@+id/common_ibtn_title_right"
+                android:id="@+id/ibtn_title_right"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

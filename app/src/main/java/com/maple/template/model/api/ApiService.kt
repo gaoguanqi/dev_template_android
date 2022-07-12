@@ -32,6 +32,12 @@ interface ApiService {
         @Query("limit") limit: Int,
     ): RecordPageEntity
 
+    @Headers("${Global.DOMAIN}:${Global.URL_FINAL}")
+    @GET(ApiURL.URL_VERSION_APP)
+    suspend fun checkVersion(
+        @Query("appId") appId: String,
+        @Query("appType") appType: String,
+    ): AppInfoEntity
 
     @Headers("${Global.DOMAIN}:${Global.URL_FINAL}")
     @GET(ApiURL.URL_BSDIFF_APP)

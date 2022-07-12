@@ -193,7 +193,6 @@
                         app:layout_constraintStart_toEndOf="@id/iv_bsdiff" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_setting"
                     android:layout_width="match_parent"

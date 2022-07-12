@@ -26,6 +26,7 @@ import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
 import com.maple.template.db.DBHelper
 import com.maple.template.db.UserInfo
+import com.maple.template.ui.activity.AboutActivity
 import com.maple.template.ui.activity.AccountActivity
 import com.maple.template.vm.HomeViewModel
 
@@ -161,11 +162,7 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
                 }
             }
             bd.clAbout.setOnClickListener {
-                viewModel.userInfoLiveData.value?.let {
-                    showToast("关于")
-                }?:let {
-                    showToast("请登录")
-                }
+                onStartActivity(AboutActivity::class.java)
             }
 
             bd.btnUnlogin.setOnClickListener {

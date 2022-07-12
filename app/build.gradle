@@ -18,6 +18,12 @@ android {
         versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
     }
 
     android.applicationVariants.all {
@@ -33,6 +39,12 @@ android {
                 }
                 outputFileName = "../../apk/" + fileName
             }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.10.2'
+        }
     }
 }
 

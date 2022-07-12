@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.PathUtils
 import com.blankj.utilcode.util.ScreenUtils
+import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
 import com.maple.commonlib.databinding.DialogUpdateBinding
@@ -20,7 +21,7 @@ import java.io.File
 class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
     mHeight = (ScreenUtils.getScreenHeight() * 0.54f).toInt()){
 
-    private val downloadUrl: String = "http://192.168.1.84:9000/imchat/app/20220701/a0olbwp7c9i0kteu8dj6z0os1gbky9zu.apk"
+    private var downloadUrl: String? = null
 
     private val viewModel by viewModels<UpdateViewModel>()
 
@@ -56,12 +57,13 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
                 " 4,修复bug ")
     }
 
-    private fun onDownloadApk(downloadUrl: String) {
+    private fun onDownloadApk(downloadUrl: String?) {
         if(TextUtils.isEmpty(downloadUrl)) {
             ToastUtils.showToast("无效的下载地址！")
             dismissAllowingStateLoss()
             return
         }
+        LogUtils.logGGQ("下载地址--->${downloadUrl}")
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录
             .build()
@@ -87,6 +89,7 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
 
                 override fun onError(throwable: Throwable) {
                     viewModel.defUI.onToast("版本更新失败！")
+                    dismissAllowingStateLoss()
                 }
             })
     }
@@ -98,5 +101,9 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
         viewModel.updateState.set(true)
         viewModel.ignoreState.set(true)
         viewModel.progressState.set(false)
+    }
+
+    fun setDownloadUrl(url: String?) {
+        this.downloadUrl = url
     }
 }
