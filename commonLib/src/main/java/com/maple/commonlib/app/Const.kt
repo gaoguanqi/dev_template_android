@@ -11,6 +11,8 @@ class Const {
         const val HAS_APP_FIRST = "hasFirst"
 
         const val ACCESS_TOKEN = "accessToken"
+
+        const val APK_PATH_OLD = "apkOldPath"
     }
 
     object BundleKey {

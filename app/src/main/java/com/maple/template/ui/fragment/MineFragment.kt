@@ -10,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.SPUtils
 import com.google.android.material.appbar.AppBarLayout
 import com.maple.baselib.ext.toGone
 import com.maple.baselib.ext.toVisible
@@ -151,6 +152,10 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
             bd.clBsdiff.setOnClickListener {
 //                showToast("增量更新")
                 //
+                if(TextUtils.isEmpty(SPUtils.getInstance().getString(Const.SaveInfoKey.APK_PATH_OLD))) {
+                    showToast("无效的旧版本")
+                    return@setOnClickListener
+                }
                 viewModel.checkBsdiff()
             }
 

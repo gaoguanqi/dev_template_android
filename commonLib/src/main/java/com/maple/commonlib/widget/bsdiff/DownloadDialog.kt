@@ -55,6 +55,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
             dismissAllowingStateLoss()
             return
         }
+
         LogUtils.logGGQ("下载地址--->${downloadUrl}")
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录

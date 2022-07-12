@@ -6,10 +6,12 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.PathUtils
+import com.blankj.utilcode.util.SPUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
+import com.maple.commonlib.app.Const
 import com.maple.commonlib.databinding.DialogUpdateBinding
 import com.maple.commonlib.utils.ToastUtils
 import com.xuexiang.xupdate.XUpdate
@@ -81,6 +83,8 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
                 override fun onCompleted(file: File): Boolean {
                     dismissAllowingStateLoss()
                     if(FileUtils.isFile(file)) {
+                        LogUtils.logGGQ("==apk==>>>${file.path}")
+                        SPUtils.getInstance().put(Const.SaveInfoKey.APK_PATH_OLD,file.path)
                         _XUpdate.startInstallApk(requireContext(),file)
                         return true
                     }
