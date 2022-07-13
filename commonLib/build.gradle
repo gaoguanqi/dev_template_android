@@ -115,6 +115,15 @@ dependencies {
 
     api 'com.github.xuexiangjys:XUpdate:2.1.2'
     api 'com.zhy:okhttputils:2.6.2'
-    api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+
+    // 屏幕适配方案-头条
+    //    <meta-data
+    //            android:name="design_width_in_dp"
+    //            android:value="360" />
+    //        <meta-data
+    //            android:name="design_height_in_dp"
+    //            android:value="640"
+    //    />
+    // api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
 
 }

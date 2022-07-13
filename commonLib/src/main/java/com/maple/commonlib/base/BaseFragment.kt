@@ -1,8 +1,10 @@
 package com.maple.commonlib.base
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import com.gyf.immersionbar.ktx.immersionBar
+import com.maple.commonlib.R
 import com.maple.commonlib.utils.ToastUtils
 import com.maple.commonlib.widget.dialog.LoadingDialog
 import kotlinx.coroutines.delay
@@ -57,9 +59,15 @@ abstract class BaseFragment: B() {
 //        }
 
         immersionBar {
-//            statusBarColor(color)
+            if(color == Color.TRANSPARENT) {
+                transparentStatusBar()
+            } else {
+                statusBarColor(color)
+            }
             statusBarDarkFont(true)
             fitsSystemWindows(fitWindow)
+            navigationBarColor(R.color.common_white)
+            navigationBarDarkIcon(true)
         }
     }
 

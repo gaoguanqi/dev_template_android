@@ -216,7 +216,7 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
     }
 
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
-        super.setStatusBarMode(R.color.common_toolbar, fitWindow)
+        super.setStatusBarMode(color, fitWindow)
     }
     
     private fun setUserInfoStateView(isUserInfo: Boolean) {

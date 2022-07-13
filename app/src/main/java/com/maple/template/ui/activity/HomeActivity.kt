@@ -160,7 +160,7 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
-        super.setStatusBarMode(R.color.common_white, fitWindow)
+        super.setStatusBarMode(color, fitWindow)
     }
 
     private var lastBackPressedMillis: Long = 0L

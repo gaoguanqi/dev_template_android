@@ -58,6 +58,6 @@ class MainFragment : BaseViewFragment<FragmentMainBinding,HomeViewModel>() {
     }
 
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
-        super.setStatusBarMode(R.color.common_white, fitWindow)
+        super.setStatusBarMode(color, fitWindow)
     }
 }

@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.AppUtils
+import com.gyf.immersionbar.ktx.immersionBar
 import com.maple.baselib.utils.LogUtils
 import com.maple.commonlib.base.BaseActivity
 import com.maple.commonlib.widget.update.UpdateDialog
@@ -63,6 +64,6 @@ class AboutActivity : BaseActivity() {
     }
 
     override fun setStatusBarMode(color: Int, fitWindow: Boolean) {
-        super.setStatusBarMode(R.color.common_toolbar, fitWindow)
+        super.setStatusBarMode(R.color.common_toolbar, true)
     }
 }
