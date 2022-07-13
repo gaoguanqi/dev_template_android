@@ -104,7 +104,15 @@ dependencies {
     api 'io.github.scwang90:refresh-footer-classics:2.0.5'
 
     api 'com.github.Zhao-Yan-Yan:MultiStatePage:2.0.5'
-    api 'com.gitee.zackratos:UltimateBarX:0.8.0'
+    // 状态栏
+    //    api 'com.gitee.zackratos:UltimateBarX:0.8.0'
+    // 基础依赖包，必须要依赖
+    api 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    // kotlin扩展（可选）
+    api 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.2'
+    // fragment快速实现（可选）已废弃
+    api 'com.geyifeng.immersionbar:immersionbar-components:3.2.2'
+
     api 'com.github.xuexiangjys:XUpdate:2.1.2'
     api 'com.zhy:okhttputils:2.6.2'
     api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'

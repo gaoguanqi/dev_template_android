@@ -30,7 +30,7 @@ open class BaseViewModel: B() {
         this.limit = 10
     }
 
-    private fun nextPage() {
+    fun nextPage() {
         this.page += 1
     }
 
@@ -40,9 +40,6 @@ open class BaseViewModel: B() {
     }
     fun setNoMoreData(isNoMoreData: Boolean) {
         this.hasNoMoreData = isNoMoreData
-        if(this.hasNoMoreData) {
-            nextPage()
-        }
     }
 
 

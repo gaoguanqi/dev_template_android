@@ -31,25 +31,20 @@ class RecordAdapter(val context: Context): RecyclerView.Adapter<RecyclerView.Vie
     private val list: MutableList<RecordPageEntity.Data.RecordList> = mutableListOf()
     private val banner: MutableList<BannerEntity.Data.Banner> = mutableListOf()
 
-    private var total:Int = 0
-
-
     fun setListener(listener: OnClickListener?) {
         this.listener = listener
     }
 
-    fun setList(l: List<RecordPageEntity.Data.RecordList>?, total: Int) {
+    fun setList(l: List<RecordPageEntity.Data.RecordList>?) {
         if(!l.isNullOrEmpty()) {
-            this.total = total
             this.list.clear()
             this.list.addAll(l)
             this.notifyDataSetChanged()
         }
     }
 
-    fun upDataList(l: List<RecordPageEntity.Data.RecordList>?,total: Int) {
+    fun upDataList(l: List<RecordPageEntity.Data.RecordList>?) {
         if(!l.isNullOrEmpty()) {
-            this.total = total
             this.list.addAll(l)
             this.notifyDataSetChanged()
         }
@@ -115,7 +110,7 @@ class RecordAdapter(val context: Context): RecyclerView.Adapter<RecyclerView.Vie
         private val tvTime: TextView = itemView.findViewById(R.id.tv_time)
         fun setData(pos: Int, data: RecordPageEntity.Data.RecordList?) {
             data?.let {
-                tvIndex.text = "${pos} -- ${total}"
+                tvIndex.text = "${pos}"
                 tvUsername.text = it.username
                 tvPhone.text = it.phone
                 tvIp.text = it.ip

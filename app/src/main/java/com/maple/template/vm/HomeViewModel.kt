@@ -79,8 +79,6 @@ class HomeViewModel: BaseViewModel(){
     val recordRefreshList: MutableLiveData<List<RecordPageEntity.Data.RecordList>> = MutableLiveData()
     val recordLoadMoreList: MutableLiveData<List<RecordPageEntity.Data.RecordList>> = MutableLiveData()
 
-    var total: Int = 0
-
     fun getRecordList() {
         resetPage()
         launchOnlyResult(
@@ -90,10 +88,11 @@ class HomeViewModel: BaseViewModel(){
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
-                    total = entity?.data?.total?:0
+                    LogUtils.logGGQ("=====>>>${entity?.data?.current}--${entity?.data?.pages}")
                     setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let { list ->
                         if(list.isNotEmpty()) {
+                            nextPage()
                             recordList.postValue(list)
                         }
                     }
@@ -110,10 +109,11 @@ class HomeViewModel: BaseViewModel(){
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
-                    total = entity?.data?.total?:0
+                    LogUtils.logGGQ("=====>>>${entity?.data?.current}--${entity?.data?.pages}")
                     setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let { list ->
                         if(list.isNotEmpty()) {
+                            nextPage()
                             recordRefreshList.postValue(list)
                         }
                     }
@@ -131,10 +131,11 @@ class HomeViewModel: BaseViewModel(){
             }, success = {
                 it.let { data ->
                     val entity = GsonUtils.fromJson(GsonUtils.toJson(data), RecordPageEntity::class.java)
-                    total = entity?.data?.total?:0
+                    LogUtils.logGGQ("=====>>>${entity?.data?.current}--${entity?.data?.pages}")
                     setNoMoreData(entity?.data?.current == entity?.data?.pages)
                     entity?.data?.list?.let {
                         if (it.isNotEmpty()) {
+                            nextPage()
                             recordLoadMoreList.postValue(it)
                         }
                     }

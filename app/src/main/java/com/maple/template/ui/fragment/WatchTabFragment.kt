@@ -79,15 +79,15 @@ class WatchTabFragment : BaseViewFragment<FragmentWatchTabBinding, HomeViewModel
         })
 
         viewModel.recordList.observe(this, Observer {
-            listAdapter.setList(it,viewModel.total)
+            listAdapter.setList(it)
             setNoMoreData(viewModel.getNoMoreData())
         })
         viewModel.recordRefreshList.observe(this, Observer {
-            listAdapter.setList(it,viewModel.total)
+            listAdapter.setList(it)
             setNoMoreData(viewModel.getNoMoreData())
         })
         viewModel.recordLoadMoreList.observe(this, Observer {
-            listAdapter.upDataList(it,viewModel.total)
+            listAdapter.upDataList(it)
             setNoMoreData(viewModel.getNoMoreData())
         })
 

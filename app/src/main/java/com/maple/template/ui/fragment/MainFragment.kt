@@ -6,15 +6,12 @@ import android.view.View
 import android.widget.TextView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.maple.baselib.ext.layoutInflater
-import com.maple.baselib.utils.LogUtils
 import com.maple.commonlib.base.BaseFragment
 import com.maple.commonlib.base.BaseViewFragment
 import com.maple.commonlib.common.MyFragmentStateAdapter
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMainBinding
 import com.maple.template.vm.HomeViewModel
-import com.zackratos.ultimatebarx.ultimatebarx.java.UltimateBarX.statusBarOnly
-import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 
 class MainFragment : BaseViewFragment<FragmentMainBinding,HomeViewModel>() {
 

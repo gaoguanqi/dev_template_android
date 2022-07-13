@@ -69,7 +69,7 @@ abstract class BaseActivity: AppCompatActivity(), IView {
     }
 
     /// 默认透明状态栏
-    open fun setStatusBarMode(color: Int = Color.TRANSPARENT, fitWindow: Boolean = true) {}
+    open fun setStatusBarMode(color: Int = Color.TRANSPARENT, fitWindow: Boolean = false) {}
 
     /***
      * 打开新的页面

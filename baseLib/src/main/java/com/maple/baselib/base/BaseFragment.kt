@@ -52,7 +52,7 @@ abstract class BaseFragment: Fragment(), IView {
         this.initData(savedInstanceState)
     }
 
-    open fun setStatusBarMode(color: Int = Color.TRANSPARENT,fitWindow: Boolean = true ) {}
+    open fun setStatusBarMode(color: Int = Color.TRANSPARENT,fitWindow: Boolean = false ) {}
 
     fun onClickProxy(m: () -> Unit) {
         if (!UIUtils.isFastClick()) {
