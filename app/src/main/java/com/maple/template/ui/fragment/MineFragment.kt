@@ -32,6 +32,7 @@ import com.maple.template.db.DBHelper
 import com.maple.template.db.UserInfo
 import com.maple.template.ui.activity.AboutActivity
 import com.maple.template.ui.activity.AccountActivity
+import com.maple.template.ui.activity.SettingActivity
 import com.maple.template.vm.HomeViewModel
 
 class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
@@ -168,7 +169,7 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
 
             bd.clSetting.setOnClickListener {
                 viewModel.userInfoLiveData.value?.let {
-                    showToast("设置")
+                    onStartActivity(SettingActivity::class.java)
                 }?:let {
                     showToast("请登录")
                 }

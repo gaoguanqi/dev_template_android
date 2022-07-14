@@ -86,7 +86,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
                     LogUtils.logGGQ("--新apk-->${newApkFile.absolutePath}")
                     LogUtils.logGGQ("--patch-->${file.absolutePath}")
                     Thread {
-                        PatchUtil.patchAPK(
+                        PatchUtil.patch(
                             File(oldApk).absolutePath,
                             newApkFile.absolutePath,
                             file.absolutePath

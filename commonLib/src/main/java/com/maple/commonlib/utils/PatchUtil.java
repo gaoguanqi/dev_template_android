@@ -12,13 +12,18 @@ package com.maple.commonlib.utils;
  */
 public class PatchUtil {
     static {
-        System.loadLibrary("native-lib");
+        System.loadLibrary("update-lib");
     }
     /**
-     * 合并APK文件
-     * @param oldApkFile 旧APK文件路径
-     * @param newApkFile 新APK文件路径（存储生成的APK的路径）
-     * @param patchFile 差异文件
+     * native方法 使用路径为oldApkPath的apk与路径为patchPath的补丁包，合成新的apk，并存储于newApkPath
+     *
+     * 返回：0，说明操作成功
+     *
+     * @param oldApkPath 示例:/sdcard/old.apk
+     * @param newApkPath 示例:/sdcard/new.apk
+     * @param patchPath  示例:/sdcard/xx.patch
+     * @return
      */
-    public native static void patchAPK(String oldApkFile,String newApkFile,String patchFile);
+    public static native int patch(String oldApkPath, String newApkPath,
+                                   String patchPath);
 }
