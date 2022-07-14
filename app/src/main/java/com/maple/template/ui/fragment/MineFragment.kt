@@ -213,10 +213,8 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
     }) {
         it?.let { result ->
             LogUtils.logGGQ("--result-->${result}")
-            if(TextUtils.equals("ok",result)) {
-                viewModel.getUserInfo()
-                setUserInfoStateView(true)
-            }
+            viewModel.getUserInfo()
+            setUserInfoStateView(viewModel.userInfoLiveData.value != null)
         }
     }
 
