@@ -194,14 +194,15 @@
 
 ### Base模块
 -keep class com.maple.baselib.ext.** { *; }
--keep class com.maple.baselib.manager.** { *; }
 -keep class com.maple.baselib.widget.** { *; }
 ### 公共模块
+-keep class com.maple.commonlib.ext.** { *; }
 -keep class com.maple.commonlib.common.** { *; }
 -keep class com.maple.commonlib.widget.** { *; }
 ### APP项目模块
 -keep class com.maple.template.model.entity.** { *; }
 -keep class com.maple.template.db.** { *; }
+-keep class com.maple.template.widget.** { *; }
 
 ### xupdate
 -keep class com.xuexiang.xupdate.entity.** { *; }
@@ -337,6 +338,9 @@ androidx.recyclerview.widget.LinearLayoutManager mLayoutManager;
 # AVLoading
 -keep class com.wang.avi.** { *; }
 -keep class com.wang.avi.indicators.** { *; }
+# banner
+-keep class androidx.recyclerview.widget.**{*;}
+-keep class androidx.viewpager2.widget.**{*;}
 
 # 多状态布局
 -dontwarn com.zy.multistatepage.**

@@ -82,12 +82,12 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
                 override fun onCompleted(file: File): Boolean {
                     dismissAllowingStateLoss()
                     val newApkFile = File(PathUtils.getExternalDownloadsPath(),"new.apk")
-                    LogUtils.logGGQ("--旧apk-->${File(oldApk).absolutePath}")
+                    LogUtils.logGGQ("--旧apk-->${oldApk}")
                     LogUtils.logGGQ("--新apk-->${newApkFile.absolutePath}")
                     LogUtils.logGGQ("--patch-->${file.absolutePath}")
                     Thread {
                         PatchUtil.patch(
-                            File(oldApk).absolutePath,
+                            oldApk,
                             newApkFile.absolutePath,
                             file.absolutePath
                         )
@@ -108,5 +108,4 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
     override fun onReset() {
         super.onReset()
     }
-
 }

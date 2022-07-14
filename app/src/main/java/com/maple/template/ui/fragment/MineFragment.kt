@@ -170,6 +170,7 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
             bd.clSetting.setOnClickListener {
                 viewModel.userInfoLiveData.value?.let {
                     onStartActivity(SettingActivity::class.java)
+//                    showToast("设置")
                 }?:let {
                     showToast("请登录")
                 }
