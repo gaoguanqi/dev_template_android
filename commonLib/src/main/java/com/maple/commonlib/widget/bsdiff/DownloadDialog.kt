@@ -21,8 +21,8 @@ import com.blankj.utilcode.util.AppUtils
 import com.maple.commonlib.utils.PatchUtil
 
 import android.os.Environment
-
-
+import com.blankj.utilcode.util.SPUtils
+import com.maple.commonlib.app.Const
 
 
 class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
@@ -63,6 +63,10 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
         }
 
         LogUtils.logGGQ("下载地址--->${downloadUrl}")
+
+        val oldApk = SPUtils.getInstance().getString(Const.SaveInfoKey.APK_PATH_OLD)
+        LogUtils.logGGQ("旧的 APK 地址--->${oldApk}")
+
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录
             .build()
@@ -77,27 +81,19 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
                 override fun onCompleted(file: File): Boolean {
                     dismissAllowingStateLoss()
-
-//                    new Thread(() -> {
-//                        File oldApkFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "old.apk");
-//                        File newApkFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "new.apk");
-//                        File patchFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "patch");
-//                        PatchUtil.patchAPK(oldApkFile.getAbsolutePath(),newApkFile.getAbsolutePath(),patchFile.getAbsolutePath());
-//                        //安装APK
-//                        AppUtils.installApp(newApkFile);
-//                    }).start();
-
-//                    Thread {
-//                        PatchUtil.patchAPK(
-//                            oldApkFile.absolutePath,
-//                            newApkFile.absolutePath,
-//                            patchFile.absolutePath
-//                        )
-//                        //安装APK
-//                        AppUtils.installApp(newApkFile)
-//                    }.start()
-
-
+                    val newApkFile = File(PathUtils.getExternalDownloadsPath(),"new.apk")
+                    LogUtils.logGGQ("--旧apk-->${File(oldApk).absolutePath}")
+                    LogUtils.logGGQ("--新apk-->${newApkFile.absolutePath}")
+                    LogUtils.logGGQ("--patch-->${file.absolutePath}")
+                    Thread {
+                        PatchUtil.patchAPK(
+                            File(oldApk).absolutePath,
+                            newApkFile.absolutePath,
+                            file.absolutePath
+                        )
+                        //安装APK
+                        AppUtils.installApp(newApkFile)
+                    }.start()
                     return false
                 }
 
