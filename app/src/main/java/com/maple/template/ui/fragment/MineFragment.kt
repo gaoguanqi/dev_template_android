@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.SPUtils
 import com.google.android.material.appbar.AppBarLayout
@@ -23,6 +24,8 @@ import com.maple.commonlib.ext.load
 import com.maple.commonlib.ext.loadCircle
 import com.maple.commonlib.widget.bsdiff.DownloadDialog
 import com.maple.commonlib.widget.dialog.CommonDialog
+import com.maple.commonlib.widget.update.InfoData
+import com.maple.commonlib.widget.update.UpdateViewModel
 import com.maple.template.R
 import com.maple.template.databinding.FragmentMineBinding
 import com.maple.template.db.DBHelper
@@ -61,6 +64,9 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
 
 
     private val viewModel by viewModels<HomeViewModel>()
+
+    private val updateViewModel by viewModels<UpdateViewModel>()
+
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
 
@@ -124,7 +130,8 @@ class MineFragment : BaseViewFragment<FragmentMineBinding, HomeViewModel>() {
         }
 
         viewModel.appInfoLiveData.observe(this, Observer {
-            downloadDialog.setDownloadUrl(it.downloadUrl)
+            val infoData = InfoData(type = 2,patchUrl = it.downloadUrl)
+            updateViewModel.infoLiveData.postValue(infoData)
            downloadDialog.showAllowStateLoss(this.childFragmentManager,"downloadDialog")
         })
 

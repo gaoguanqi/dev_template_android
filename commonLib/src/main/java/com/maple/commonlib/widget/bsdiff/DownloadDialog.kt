@@ -32,7 +32,6 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
     private val viewModel by viewModels<UpdateViewModel>()
 
-    private var downloadUrl: String? = null
 
     override fun getLayoutId(): Int = R.layout.dialog_download
 
@@ -46,7 +45,14 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
             ToastUtils.showToast(it)
         })
 
-        onDownloadFile(downloadUrl)
+        viewModel.infoLiveData.observe(this, Observer {
+            it?.let { data ->
+                if(data.type != 2) {
+                    return@Observer
+                }
+                onDownloadFile(data.patchUrl)
+            }
+        })
     }
 
     private fun onDownloadFile(downloadUrl: String?) {
@@ -96,7 +102,7 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
                 }
 
                 override fun onError(throwable: Throwable) {
-                    viewModel.defUI.onToast("增量更新失败！")
+                    ToastUtils.showToast("增量更新失败！")
                     dismissAllowingStateLoss()
                 }
             })
@@ -105,10 +111,6 @@ class DownloadDialog : BaseDialogFragment<DialogDownloadBinding>(
 
     override fun onReset() {
         super.onReset()
-
     }
 
-    fun setDownloadUrl(url: String?) {
-        this.downloadUrl = url
-    }
 }

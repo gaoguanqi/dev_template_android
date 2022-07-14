@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/common_black"
                 android:textSize="16sp"
-                android:text="@{viewModel.updateTitle}"
                 tools:text="是否升级到1.0.1版本？" />
 
             <androidx.core.widget.NestedScrollView
@@ -63,7 +62,6 @@
                         android:lineSpacingExtra="5dp"
                         android:textColor="#FF666666"
                         android:textSize="14sp"
-                        android:text="@{viewModel.updateInfo}"
                         tools:text="1、xxxxxxxx\n2、ooooooooo" />
 
                 </LinearLayout>
@@ -79,8 +77,6 @@
                 android:text="升级"
                 android:background="@drawable/selector_update_confirm"
                 android:textColor="@color/common_white"
-                android:onClick="@{(v) -> viewModel.onUpdate()}"
-                android:visibility="@{viewModel.updateState? View.VISIBLE : View.GONE}"
                 android:textSize="16sp" />
 
             <TextView
@@ -91,16 +87,13 @@
                 android:minHeight="42dp"
                 android:text="忽略此版本"
                 android:textColor="#FF666666"
-                android:textSize="14sp"
-                android:onClick="@{(v) -> viewModel.onIgnore()}"
-                android:visibility="@{viewModel.ignoreState? View.VISIBLE : View.GONE}" />
+                android:textSize="14sp"/>
 
             <com.xuexiang.xupdate.widget.NumberProgressBar
                 android:id="@+id/npb_progress"
                 style="@style/common_xupdate_progressbar"
-                android:layout_marginBottom="20dp"
-                android:visibility="@{viewModel.progressState? View.VISIBLE : View.GONE}" />
-
+                android:visibility="gone"
+                android:layout_marginBottom="20dp" />
         </LinearLayout>
     </LinearLayout>
 </layout>

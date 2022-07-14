@@ -8,6 +8,8 @@ import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.PathUtils
 import com.blankj.utilcode.util.SPUtils
 import com.blankj.utilcode.util.ScreenUtils
+import com.maple.baselib.ext.toGone
+import com.maple.baselib.ext.toVisible
 import com.maple.baselib.utils.LogUtils
 import com.maple.baselib.widget.dialog.BaseDialogFragment
 import com.maple.commonlib.R
@@ -23,40 +25,43 @@ import java.io.File
 class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
     mHeight = (ScreenUtils.getScreenHeight() * 0.54f).toInt()){
 
-    private var downloadUrl: String? = null
-
-    private val viewModel by viewModels<UpdateViewModel>()
-
-
     override fun getCancelable(): Boolean = true
 
     override fun getLayoutId(): Int = R.layout.dialog_update
+
+    private val viewModel by viewModels<UpdateViewModel>()
 
     override fun bindViewModel() {
         super.bindViewModel()
         this.binding.viewModel = viewModel
     }
 
+
     override fun initFragment(view: View, savedInstanceState: Bundle?) {
         viewModel.defUI.toastEvent.observe(this, Observer {
-            ToastUtils.showToast(it)
+            ToastUtils.showToast("无效的下载地址！")
         })
 
-        viewModel.ignoreEvent.observe(this, Observer {
-            dismissAllowingStateLoss()
+        viewModel.infoLiveData.observe(this, Observer {
+            it?.let { data ->
+                if(data.type != 1) {
+                    return@Observer
+                }
+                if(data.isIgnore) binding.tvIgnore.toVisible() else binding.tvIgnore.toGone()
+                binding.tvUpdateTitle.text = data.title
+                binding.tvUpdateInfo.text = data.content
+                binding.btnUpdate.toVisible()
+            }
         })
 
-        viewModel.updateEvent.observe(this, Observer {
-            viewModel.ignoreState.set(false)
-            viewModel.updateState.set(false)
-            onDownloadApk(downloadUrl)
-        })
-
-        viewModel.updateTitle.set("升级到V1.0.1版本")
-        viewModel.updateInfo.set("1,修复bug \n" +
-                " 2,修复bug \n" +
-                " 3,修复bug \n" +
-                " 4,修复bug ")
+        binding.let { bd ->
+            bd.tvIgnore.setOnClickListener {
+                this.dismissAllowingStateLoss()
+            }
+            bd.btnUpdate.setOnClickListener {
+                onDownloadApk(viewModel.infoLiveData.value?.downloadUrl)
+            }
+        }
     }
 
     private fun onDownloadApk(downloadUrl: String?) {
@@ -65,6 +70,8 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
             dismissAllowingStateLoss()
             return
         }
+        binding.btnUpdate.toGone()
+        binding.tvIgnore.toGone()
         LogUtils.logGGQ("下载地址--->${downloadUrl}")
         XUpdate.newBuild(this.requireActivity())
             .apkCacheDir(PathUtils.getExternalDownloadsPath()) //设置下载缓存的根目录
@@ -72,7 +79,7 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
             .download(downloadUrl, object : OnFileDownloadListener {
                 //设置下载的地址和下载的监听
                 override fun onStart() {
-                    viewModel.progressState.set(true)
+                    this@UpdateDialog.binding.npbProgress.toVisible()
                 }
 
                 override fun onProgress(progress: Float, total: Long) {
@@ -92,7 +99,7 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
                 }
 
                 override fun onError(throwable: Throwable) {
-                    viewModel.defUI.onToast("版本更新失败！")
+                    ToastUtils.showToast("版本更新失败！")
                     dismissAllowingStateLoss()
                 }
             })
@@ -100,14 +107,13 @@ class UpdateDialog: BaseDialogFragment<DialogUpdateBinding>(
 
     override fun onReset() {
         super.onReset()
-        viewModel.updateTitle.set("")
-        viewModel.updateInfo.set("")
-        viewModel.updateState.set(true)
-        viewModel.ignoreState.set(true)
-        viewModel.progressState.set(false)
+        binding.tvIgnore.toGone()
+        binding.tvUpdateTitle.text = ""
+        binding.tvUpdateInfo.text = ""
+        binding.npbProgress.progress = 0
+        binding.npbProgress.toGone()
+        binding.btnUpdate.toGone()
     }
 
-    fun setDownloadUrl(url: String?) {
-        this.downloadUrl = url
-    }
+
 }

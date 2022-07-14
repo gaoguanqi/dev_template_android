@@ -9,16 +9,19 @@ import com.blankj.utilcode.util.AppUtils
 import com.gyf.immersionbar.ktx.immersionBar
 import com.maple.baselib.utils.LogUtils
 import com.maple.commonlib.base.BaseActivity
+import com.maple.commonlib.widget.update.InfoData
 import com.maple.commonlib.widget.update.UpdateDialog
+import com.maple.commonlib.widget.update.UpdateViewModel
 import com.maple.template.R
 import com.maple.template.vm.AboutViewModel
-import com.maple.template.vm.HomeViewModel
 
 class AboutActivity : BaseActivity() {
 
     override fun hasStatusBarMode(): Boolean = true
 
     private val viewModel by viewModels<AboutViewModel>()
+
+    private val updateViewModel by viewModels<UpdateViewModel>()
 
 
     private var tvVersionName: TextView? = null
@@ -58,7 +61,8 @@ class AboutActivity : BaseActivity() {
 
         viewModel.appInfoLiveData.observe(this, Observer {
             LogUtils.logGGQ("---->>${it.downloadUrl}")
-            updateDialog.setDownloadUrl(it.downloadUrl)
+            val infoData = InfoData(type = 1,title = "是否升级到:${it.versionName}",content = it.updateContent,downloadUrl = it.downloadUrl,isIgnore = it.ignorable)
+            updateViewModel.infoLiveData.postValue(infoData)
             updateDialog.showAllowStateLoss(this@AboutActivity.supportFragmentManager,"updateDialog")
         })
     }
